@@ -33,14 +33,26 @@ public class WorkerForm extends javax.swing.JFrame {
         background = new javax.swing.JLabel();
         backButton = new javax.swing.JButton();
         loginButton = new javax.swing.JButton();
+        NewWorkerButt = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Worker");
         setMinimumSize(new java.awt.Dimension(1300, 867));
         getContentPane().setLayout(null);
+
+        password.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                passwordActionPerformed(evt);
+            }
+        });
         getContentPane().add(password);
         password.setBounds(550, 440, 210, 40);
 
+        jTextPane1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTextPane1MouseClicked(evt);
+            }
+        });
         login.setViewportView(jTextPane1);
 
         getContentPane().add(login);
@@ -68,6 +80,15 @@ public class WorkerForm extends javax.swing.JFrame {
         getContentPane().add(loginButton);
         loginButton.setBounds(713, 653, 130, 40);
 
+        NewWorkerButt.setText("jButton1");
+        NewWorkerButt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NewWorkerButtActionPerformed(evt);
+            }
+        });
+        getContentPane().add(NewWorkerButt);
+        NewWorkerButt.setBounds(470, 650, 130, 40);
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -75,13 +96,30 @@ public class WorkerForm extends javax.swing.JFrame {
         // TODO add your handling code here:
         Interface interFace = new Interface();
         interFace.setVisible(true);
+        this.hide();
     }//GEN-LAST:event_backButtonActionPerformed
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
         // TODO add your handling code here:
         WorkerPortail workerPortail = new WorkerPortail();
         workerPortail.setVisible(true);
+        this.hide();
     }//GEN-LAST:event_loginButtonActionPerformed
+
+    private void NewWorkerButtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NewWorkerButtActionPerformed
+        // TODO add your handling code here:
+        NewWorkerForm newWorkerForm = new NewWorkerForm();
+        newWorkerForm.setVisible(true);
+        this.hide();
+    }//GEN-LAST:event_NewWorkerButtActionPerformed
+
+    private void passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_passwordActionPerformed
+
+    private void jTextPane1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextPane1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextPane1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -119,6 +157,7 @@ public class WorkerForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton NewWorkerButt;
     private javax.swing.JButton backButton;
     private javax.swing.JLabel background;
     private javax.swing.JTextPane jTextPane1;

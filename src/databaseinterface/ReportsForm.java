@@ -9,14 +9,13 @@ package databaseinterface;
  *
  * @author Veronika
  */
-public class ClientForm extends javax.swing.JFrame {
+public class ReportsForm extends javax.swing.JFrame {
 
     /**
-     * Creates new form ClientForm
+     * Creates new form ReportsForm
      */
-    public ClientForm() {
+    public ReportsForm() {
         initComponents();
-        
     }
 
     /**
@@ -28,48 +27,52 @@ public class ClientForm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        password = new javax.swing.JPasswordField();
-        login = new javax.swing.JScrollPane();
-        jTextPane1 = new javax.swing.JTextPane();
-        background = new javax.swing.JLabel();
-        backButton = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        HomeReports = new javax.swing.JButton();
+        LogoutReports = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Client");
-        setMinimumSize(new java.awt.Dimension(1300, 867));
+        setMinimumSize(new java.awt.Dimension(1320, 867));
         getContentPane().setLayout(null);
-        getContentPane().add(password);
-        password.setBounds(550, 440, 210, 40);
 
-        login.setViewportView(jTextPane1);
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/databaseinterface/assets/reportPage.png"))); // NOI18N
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(10, 11, 1300, 867);
 
-        getContentPane().add(login);
-        login.setBounds(550, 360, 210, 40);
-
-        background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/databaseinterface/assets/clientForm.png"))); // NOI18N
-        getContentPane().add(background);
-        background.setBounds(10, -10, 1300, 890);
-
-        backButton.setText("jButton1");
-        backButton.addActionListener(new java.awt.event.ActionListener() {
+        HomeReports.setText("jButton1");
+        HomeReports.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                backButtonActionPerformed(evt);
+                HomeReportsActionPerformed(evt);
             }
         });
-        getContentPane().add(backButton);
-        backButton.setBounds(13, 120, 70, 80);
+        getContentPane().add(HomeReports);
+        HomeReports.setBounds(1194, 60, 50, 40);
+
+        LogoutReports.setText("jButton2");
+        LogoutReports.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LogoutReportsActionPerformed(evt);
+            }
+        });
+        getContentPane().add(LogoutReports);
+        LogoutReports.setBounds(1260, 60, 40, 40);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
+    private void HomeReportsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HomeReportsActionPerformed
         // TODO add your handling code here:
-       
+        WorkerPortail workerPortail = new WorkerPortail();
+        workerPortail.setVisible(true);
+        this.hide();
+    }//GEN-LAST:event_HomeReportsActionPerformed
+
+    private void LogoutReportsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutReportsActionPerformed
+        // TODO add your handling code here:
         Interface interFace = new Interface();
         interFace.setVisible(true);
         this.hide();
-        
-    }//GEN-LAST:event_backButtonActionPerformed
+    }//GEN-LAST:event_LogoutReportsActionPerformed
 
     /**
      * @param args the command line arguments
@@ -88,29 +91,27 @@ public class ClientForm extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ClientForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ReportsForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ClientForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ReportsForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ClientForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ReportsForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ClientForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ReportsForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ClientForm().setVisible(true);
+                new ReportsForm().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton backButton;
-    private javax.swing.JLabel background;
-    private javax.swing.JTextPane jTextPane1;
-    private javax.swing.JScrollPane login;
-    private javax.swing.JPasswordField password;
+    private javax.swing.JButton HomeReports;
+    private javax.swing.JButton LogoutReports;
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

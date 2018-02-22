@@ -37,7 +37,7 @@ public class Interface extends javax.swing.JFrame {
         background = new javax.swing.JLabel();
         workerButton = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Hotel database");
         setMinimumSize(new java.awt.Dimension(1300, 867));
         getContentPane().setLayout(null);
@@ -79,8 +79,13 @@ public class Interface extends javax.swing.JFrame {
 
     private void clientButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clientButtonActionPerformed
         // TODO add your handling code here:
+       
         ClientForm clientForm = new ClientForm();
         clientForm.setVisible(true);
+        this.hide();
+    
+        
+        
         
     }//GEN-LAST:event_clientButtonActionPerformed
 
@@ -88,6 +93,7 @@ public class Interface extends javax.swing.JFrame {
         // TODO add your handling code here:
         WorkerForm workerForm = new WorkerForm();
         workerForm.setVisible(true);
+        this.hide();
     }//GEN-LAST:event_workerButtonActionPerformed
 
     /**
@@ -140,5 +146,7 @@ public class Interface extends javax.swing.JFrame {
     private void close() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    
 
 }

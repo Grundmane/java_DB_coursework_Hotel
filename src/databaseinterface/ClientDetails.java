@@ -27,104 +27,265 @@ public class ClientDetails extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTabbedPane3 = new javax.swing.JTabbedPane();
+        jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
+        jCheckBox1 = new javax.swing.JCheckBox();
         jLabel1 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        HomeSearchRoom = new javax.swing.JButton();
+        LogoutSearchRoom = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        HomeDeleteClient = new javax.swing.JButton();
+        LogoutDeleteClient = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        HomeUpdateClient = new javax.swing.JButton();
+        LogoutUpdateClient = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        HomeSearchClient = new javax.swing.JButton();
+        LogoutSearchClient = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        LogoutViewClient = new javax.swing.JButton();
+        HomeViewClient = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(1300, 867));
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/databaseinterface/assets/AddPatient.png"))); // NOI18N
+        jPanel1.setLayout(null);
+        jPanel1.add(jCheckBox1);
+        jCheckBox1.setBounds(380, 730, 21, 40);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jLabel1)
-                .addGap(0, 22, Short.MAX_VALUE))
-        );
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/databaseinterface/assets/AddClientFinal.png"))); // NOI18N
+        jPanel1.add(jLabel1);
+        jLabel1.setBounds(0, 11, 1300, 867);
 
-        jTabbedPane3.addTab("Add Client", jPanel1);
+        jButton1.setText("jButton1");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton1);
+        jButton1.setBounds(710, 730, 170, 40);
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1300, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 889, Short.MAX_VALUE)
-        );
+        HomeSearchRoom.setText("jButton1");
+        HomeSearchRoom.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                HomeSearchRoomActionPerformed(evt);
+            }
+        });
+        jPanel1.add(HomeSearchRoom);
+        HomeSearchRoom.setBounds(1194, 60, 40, 40);
 
-        jTabbedPane3.addTab("Delete Client", jPanel2);
+        LogoutSearchRoom.setText("jButton2");
+        LogoutSearchRoom.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LogoutSearchRoomActionPerformed(evt);
+            }
+        });
+        jPanel1.add(LogoutSearchRoom);
+        LogoutSearchRoom.setBounds(1250, 60, 40, 40);
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1300, Short.MAX_VALUE)
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 889, Short.MAX_VALUE)
-        );
+        jTabbedPane1.addTab("Add Client", jPanel1);
 
-        jTabbedPane3.addTab("Update Client", jPanel3);
+        jPanel2.setLayout(null);
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1300, Short.MAX_VALUE)
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 889, Short.MAX_VALUE)
-        );
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/databaseinterface/assets/DeleteClient.png"))); // NOI18N
+        jPanel2.add(jLabel2);
+        jLabel2.setBounds(0, 11, 1300, 867);
 
-        jTabbedPane3.addTab("Search Client", jPanel4);
+        HomeDeleteClient.setText("jButton1");
+        HomeDeleteClient.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                HomeDeleteClientActionPerformed(evt);
+            }
+        });
+        jPanel2.add(HomeDeleteClient);
+        HomeDeleteClient.setBounds(1194, 60, 40, 40);
 
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1300, Short.MAX_VALUE)
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 889, Short.MAX_VALUE)
-        );
+        LogoutDeleteClient.setText("jButton2");
+        LogoutDeleteClient.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LogoutDeleteClientActionPerformed(evt);
+            }
+        });
+        jPanel2.add(LogoutDeleteClient);
+        LogoutDeleteClient.setBounds(1250, 60, 40, 40);
 
-        jTabbedPane3.addTab("View Clients", jPanel5);
+        jTabbedPane1.addTab("Delete Client", jPanel2);
+
+        jPanel3.setLayout(null);
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/databaseinterface/assets/UpdateClient.png"))); // NOI18N
+        jPanel3.add(jLabel3);
+        jLabel3.setBounds(0, 11, 1300, 867);
+
+        HomeUpdateClient.setText("jButton1");
+        HomeUpdateClient.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                HomeUpdateClientActionPerformed(evt);
+            }
+        });
+        jPanel3.add(HomeUpdateClient);
+        HomeUpdateClient.setBounds(1194, 60, 40, 40);
+
+        LogoutUpdateClient.setText("jButton2");
+        LogoutUpdateClient.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LogoutUpdateClientActionPerformed(evt);
+            }
+        });
+        jPanel3.add(LogoutUpdateClient);
+        LogoutUpdateClient.setBounds(1250, 60, 40, 40);
+
+        jTabbedPane1.addTab("Update Client", jPanel3);
+
+        jPanel4.setLayout(null);
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/databaseinterface/assets/SearchClient.png"))); // NOI18N
+        jPanel4.add(jLabel4);
+        jLabel4.setBounds(0, 11, 1300, 867);
+
+        HomeSearchClient.setText("jButton1");
+        HomeSearchClient.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                HomeSearchClientActionPerformed(evt);
+            }
+        });
+        jPanel4.add(HomeSearchClient);
+        HomeSearchClient.setBounds(1194, 60, 40, 40);
+
+        LogoutSearchClient.setText("jButton2");
+        LogoutSearchClient.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LogoutSearchClientActionPerformed(evt);
+            }
+        });
+        jPanel4.add(LogoutSearchClient);
+        LogoutSearchClient.setBounds(1250, 60, 40, 40);
+
+        jTabbedPane1.addTab("Search Client", jPanel4);
+
+        jPanel5.setLayout(null);
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/databaseinterface/assets/ViewClient.png"))); // NOI18N
+        jPanel5.add(jLabel5);
+        jLabel5.setBounds(0, 11, 1300, 867);
+
+        LogoutViewClient.setText("jButton2");
+        LogoutViewClient.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LogoutViewClientActionPerformed(evt);
+            }
+        });
+        jPanel5.add(LogoutViewClient);
+        LogoutViewClient.setBounds(1250, 60, 40, 40);
+
+        HomeViewClient.setText("jButton1");
+        HomeViewClient.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                HomeViewClientActionPerformed(evt);
+            }
+        });
+        jPanel5.add(HomeViewClient);
+        HomeViewClient.setBounds(1194, 60, 40, 40);
+
+        jTabbedPane1.addTab("View Patient", jPanel5);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jTabbedPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 1330, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1305, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 889, Short.MAX_VALUE)
+            .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 891, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
-
-        jTabbedPane3.getAccessibleContext().setAccessibleName("Add Client");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+         if (jCheckBox1.isSelected()){
+            ReservationRoomForm reservRoomForm = new ReservationRoomForm();
+            reservRoomForm.setVisible(true);
+            this.hide();
+            }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void HomeSearchRoomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HomeSearchRoomActionPerformed
+        // TODO add your handling code here:
+        WorkerPortail workerPortail = new WorkerPortail();
+        workerPortail.setVisible(true);
+        this.hide();
+    }//GEN-LAST:event_HomeSearchRoomActionPerformed
+
+    private void LogoutSearchRoomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutSearchRoomActionPerformed
+        // TODO add your handling code here:
+        Interface interFace = new Interface();
+        interFace.setVisible(true);
+        this.hide();
+    }//GEN-LAST:event_LogoutSearchRoomActionPerformed
+
+    private void HomeDeleteClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HomeDeleteClientActionPerformed
+        // TODO add your handling code here:
+         WorkerPortail workerPortail = new WorkerPortail();
+        workerPortail.setVisible(true);
+        this.hide();
+    }//GEN-LAST:event_HomeDeleteClientActionPerformed
+
+    private void LogoutDeleteClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutDeleteClientActionPerformed
+        // TODO add your handling code here:
+        Interface interFace = new Interface();
+        interFace.setVisible(true);
+        this.hide();
+    }//GEN-LAST:event_LogoutDeleteClientActionPerformed
+
+    private void HomeUpdateClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HomeUpdateClientActionPerformed
+        // TODO add your handling code here:
+           WorkerPortail workerPortail = new WorkerPortail();
+        workerPortail.setVisible(true);
+        this.hide();
+    }//GEN-LAST:event_HomeUpdateClientActionPerformed
+
+    private void LogoutUpdateClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutUpdateClientActionPerformed
+        // TODO add your handling code here:
+          Interface interFace = new Interface();
+        interFace.setVisible(true);
+        this.hide();
+    }//GEN-LAST:event_LogoutUpdateClientActionPerformed
+
+    private void HomeSearchClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HomeSearchClientActionPerformed
+        // TODO add your handling code here:
+         WorkerPortail workerPortail = new WorkerPortail();
+        workerPortail.setVisible(true);
+        this.hide();
+    }//GEN-LAST:event_HomeSearchClientActionPerformed
+
+    private void LogoutSearchClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutSearchClientActionPerformed
+        // TODO add your handling code here:
+         Interface interFace = new Interface();
+        interFace.setVisible(true);
+        this.hide();
+    }//GEN-LAST:event_LogoutSearchClientActionPerformed
+
+    private void LogoutViewClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutViewClientActionPerformed
+        // TODO add your handling code here:
+        Interface interFace = new Interface();
+        interFace.setVisible(true);
+        this.hide();
+    }//GEN-LAST:event_LogoutViewClientActionPerformed
+
+    private void HomeViewClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HomeViewClientActionPerformed
+        // TODO add your handling code here:
+        WorkerPortail workerPortail = new WorkerPortail();
+        workerPortail.setVisible(true);
+        this.hide();
+    }//GEN-LAST:event_HomeViewClientActionPerformed
 
     /**
      * @param args the command line arguments
@@ -162,12 +323,28 @@ public class ClientDetails extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton HomeDeleteClient;
+    private javax.swing.JButton HomeSearchClient;
+    private javax.swing.JButton HomeSearchRoom;
+    private javax.swing.JButton HomeUpdateClient;
+    private javax.swing.JButton HomeViewClient;
+    private javax.swing.JButton LogoutDeleteClient;
+    private javax.swing.JButton LogoutSearchClient;
+    private javax.swing.JButton LogoutSearchRoom;
+    private javax.swing.JButton LogoutUpdateClient;
+    private javax.swing.JButton LogoutViewClient;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JTabbedPane jTabbedPane3;
+    private javax.swing.JTabbedPane jTabbedPane1;
     // End of variables declaration//GEN-END:variables
 }

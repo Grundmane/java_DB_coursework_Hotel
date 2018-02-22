@@ -28,7 +28,13 @@ public class WorkerPortail extends javax.swing.JFrame {
     private void initComponents() {
 
         background = new javax.swing.JLabel();
-        clientChangeButton = new javax.swing.JButton();
+        LogoutButton = new javax.swing.JButton();
+        roomsButton = new javax.swing.JButton();
+        clientDetailsButton = new javax.swing.JButton();
+        BreakfastButton = new javax.swing.JButton();
+        ReportsButt = new javax.swing.JButton();
+        WorkerDetailsButton = new javax.swing.JButton();
+        SettingsButt = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1300, 867));
@@ -38,23 +44,121 @@ public class WorkerPortail extends javax.swing.JFrame {
         getContentPane().add(background);
         background.setBounds(0, -60, 1560, 980);
 
-        clientChangeButton.setText("jButton1");
-        clientChangeButton.addActionListener(new java.awt.event.ActionListener() {
+        LogoutButton.setText("jButton1");
+        LogoutButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                clientChangeButtonActionPerformed(evt);
+                LogoutButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(clientChangeButton);
-        clientChangeButton.setBounds(473, 193, 210, 280);
+        getContentPane().add(LogoutButton);
+        LogoutButton.setBounds(1150, 50, 130, 40);
+
+        roomsButton.setText("jButton1");
+        roomsButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                roomsButtonActionPerformed(evt);
+            }
+        });
+        getContentPane().add(roomsButton);
+        roomsButton.setBounds(960, 203, 210, 270);
+
+        clientDetailsButton.setText("jButton1");
+        clientDetailsButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clientDetailsButtonActionPerformed(evt);
+            }
+        });
+        getContentPane().add(clientDetailsButton);
+        clientDetailsButton.setBounds(470, 200, 210, 280);
+
+        BreakfastButton.setText("jButton2");
+        BreakfastButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BreakfastButtonActionPerformed(evt);
+            }
+        });
+        getContentPane().add(BreakfastButton);
+        BreakfastButton.setBounds(480, 543, 210, 270);
+
+        ReportsButt.setText("jButton1");
+        ReportsButt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ReportsButtActionPerformed(evt);
+            }
+        });
+        getContentPane().add(ReportsButt);
+        ReportsButt.setBounds(710, 543, 210, 270);
+
+        WorkerDetailsButton.setText("jButton1");
+        WorkerDetailsButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                WorkerDetailsButtonActionPerformed(evt);
+            }
+        });
+        getContentPane().add(WorkerDetailsButton);
+        WorkerDetailsButton.setBounds(720, 200, 200, 270);
+
+        SettingsButt.setText("jButton1");
+        SettingsButt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SettingsButtActionPerformed(evt);
+            }
+        });
+        getContentPane().add(SettingsButt);
+        SettingsButt.setBounds(960, 543, 210, 270);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void clientChangeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clientChangeButtonActionPerformed
+    private void LogoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutButtonActionPerformed
         // TODO add your handling code here:
-         ClientDetails clientdetails = new ClientDetails();
-        clientdetails.setVisible(true);
-    }//GEN-LAST:event_clientChangeButtonActionPerformed
+        Interface interFace = new Interface();
+        interFace.setVisible(true);
+        this.hide();
+     
+    }//GEN-LAST:event_LogoutButtonActionPerformed
+
+    private void roomsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_roomsButtonActionPerformed
+        // TODO add your handling code here:
+        RoomsForm roomsForm = new RoomsForm();
+        roomsForm.setVisible(true);
+        this.hide();
+    }//GEN-LAST:event_roomsButtonActionPerformed
+
+    private void clientDetailsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clientDetailsButtonActionPerformed
+        // TODO add your handling code here:
+        ClientDetails clientDetails = new ClientDetails();
+        clientDetails.setVisible(true);
+        this.hide();
+    }//GEN-LAST:event_clientDetailsButtonActionPerformed
+
+    private void BreakfastButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BreakfastButtonActionPerformed
+        // TODO add your handling code here:
+        BreakfastForm breakfast = new BreakfastForm();
+        breakfast.setVisible(true);
+         this.hide();
+    }//GEN-LAST:event_BreakfastButtonActionPerformed
+
+    private void ReportsButtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReportsButtActionPerformed
+        // TODO add your handling code here:
+        ReportsForm reportsForm = new ReportsForm();
+        reportsForm.setVisible(true);
+         this.hide();
+    }//GEN-LAST:event_ReportsButtActionPerformed
+
+    private void WorkerDetailsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_WorkerDetailsButtonActionPerformed
+        // TODO add your handling code here:
+           WorkerDetailsForm workerDetailsForm = new WorkerDetailsForm();
+        workerDetailsForm.setVisible(true);
+         this.hide();
+    }//GEN-LAST:event_WorkerDetailsButtonActionPerformed
+
+    private void SettingsButtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SettingsButtActionPerformed
+        // TODO add your handling code here:
+        SettingsForm settingsForm = new SettingsForm();
+        settingsForm.setVisible(true);
+          this.hide();
+    }//GEN-LAST:event_SettingsButtActionPerformed
 
     /**
      * @param args the command line arguments
@@ -92,7 +196,13 @@ public class WorkerPortail extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BreakfastButton;
+    private javax.swing.JButton LogoutButton;
+    private javax.swing.JButton ReportsButt;
+    private javax.swing.JButton SettingsButt;
+    private javax.swing.JButton WorkerDetailsButton;
     private javax.swing.JLabel background;
-    private javax.swing.JButton clientChangeButton;
+    private javax.swing.JButton clientDetailsButton;
+    private javax.swing.JButton roomsButton;
     // End of variables declaration//GEN-END:variables
 }
