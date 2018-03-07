@@ -5,17 +5,28 @@
  */
 package databaseinterface;
 
+import com.sun.istack.internal.logging.Logger;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+
 /**
  *
  * @author Veronika
  */
 public class WorkerForm extends javax.swing.JFrame {
-
+ private static final String USERNAME = "root";
+    private static final String PASSWORD = "Axeldance1240";
+   private static final String CONN_STRING = "jdbc:mysql://localhost:3306/mydbtest?useUnicode=true&useSSL=true&useJDBCCompliantTimezoneShift=true";
     /**
      * Creates new form WorkerForm
      */
     public WorkerForm() {
         initComponents();
+        
     }
 
     /**
@@ -27,36 +38,30 @@ public class WorkerForm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        password = new javax.swing.JPasswordField();
-        login = new javax.swing.JScrollPane();
-        jTextPane1 = new javax.swing.JTextPane();
+        loginErr = new javax.swing.JLabel();
+        passwordText = new javax.swing.JPasswordField();
+        loginText = new javax.swing.JTextField();
         background = new javax.swing.JLabel();
         backButton = new javax.swing.JButton();
         loginButtonW = new javax.swing.JButton();
         NewWorkerButt = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Worker");
         setMinimumSize(new java.awt.Dimension(1300, 867));
         getContentPane().setLayout(null);
+        getContentPane().add(loginErr);
+        loginErr.setBounds(550, 540, 210, 20);
 
-        password.addActionListener(new java.awt.event.ActionListener() {
+        passwordText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                passwordActionPerformed(evt);
+                passwordTextActionPerformed(evt);
             }
         });
-        getContentPane().add(password);
-        password.setBounds(550, 440, 210, 40);
-
-        jTextPane1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTextPane1MouseClicked(evt);
-            }
-        });
-        login.setViewportView(jTextPane1);
-
-        getContentPane().add(login);
-        login.setBounds(550, 360, 210, 40);
+        getContentPane().add(passwordText);
+        passwordText.setBounds(550, 440, 210, 40);
+        getContentPane().add(loginText);
+        loginText.setBounds(550, 360, 210, 40);
 
         background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/databaseinterface/assets/workerForm.png"))); // NOI18N
         getContentPane().add(background);
@@ -101,9 +106,37 @@ public class WorkerForm extends javax.swing.JFrame {
 
     private void loginButtonWActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonWActionPerformed
         // TODO add your handling code here:
-        WorkerPortail workerPortail = new WorkerPortail();
+         int flag = 1;
+           try {
+              
+           Connection conn = DriverManager.getConnection(CONN_STRING,USERNAME,PASSWORD);
+            System.out.println("Connected to database");
+              Statement s = conn.createStatement();
+              ResultSet rs = s.executeQuery("select * from mydbtest.workers");
+              while (rs.next()){
+              if ( rs.getString(13).equals(loginText.getText())&& rs.getString(14).equals(new String(passwordText.getPassword())) ){
+                  
+              flag = 0;
+              break;
+              }
+              
+              }
+              if (flag == 0 ){
+             WorkerPortail workerPortail = new WorkerPortail();
         workerPortail.setVisible(true);
         this.hide();
+              }
+              else {
+               loginErr.setText("Invalid login/password");
+              }
+        } catch (SQLException e){
+           
+        }
+        
+        
+        
+      
+   
     }//GEN-LAST:event_loginButtonWActionPerformed
 
     private void NewWorkerButtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NewWorkerButtActionPerformed
@@ -113,13 +146,9 @@ public class WorkerForm extends javax.swing.JFrame {
         this.hide();
     }//GEN-LAST:event_NewWorkerButtActionPerformed
 
-    private void passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordActionPerformed
+    private void passwordTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordTextActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_passwordActionPerformed
-
-    private void jTextPane1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextPane1MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextPane1MouseClicked
+    }//GEN-LAST:event_passwordTextActionPerformed
 
     /**
      * @param args the command line arguments
@@ -160,9 +189,9 @@ public class WorkerForm extends javax.swing.JFrame {
     private javax.swing.JButton NewWorkerButt;
     private javax.swing.JButton backButton;
     private javax.swing.JLabel background;
-    private javax.swing.JTextPane jTextPane1;
-    private javax.swing.JScrollPane login;
     private javax.swing.JButton loginButtonW;
-    private javax.swing.JPasswordField password;
+    private javax.swing.JLabel loginErr;
+    private javax.swing.JTextField loginText;
+    private javax.swing.JPasswordField passwordText;
     // End of variables declaration//GEN-END:variables
 }
