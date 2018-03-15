@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package databaseinterface;
-
+import java.sql.*;
 /**
  *
  * @author Veronika
@@ -14,6 +14,7 @@ public class Interface extends javax.swing.JFrame {
     /**
      * Creates new form Interface
      */
+   
  
     public Interface() {
         initComponents();
@@ -122,12 +123,14 @@ public class Interface extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(Interface.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
+       
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Interface().setVisible(true);
                 
+                //connect to database
+       
             }
                  
         });

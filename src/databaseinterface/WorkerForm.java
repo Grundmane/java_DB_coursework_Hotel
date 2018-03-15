@@ -114,7 +114,7 @@ public class WorkerForm extends javax.swing.JFrame {
               Statement s = conn.createStatement();
               ResultSet rs = s.executeQuery("select * from mydbtest.workers");
               while (rs.next()){
-              if ( rs.getString(13).equals(loginText.getText())&& rs.getString(14).equals(new String(passwordText.getPassword())) ){
+              if ( rs.getString(12).equals(loginText.getText())&& rs.getString(13).equals(new String(passwordText.getPassword())) ){
                   
               flag = 0;
               break;

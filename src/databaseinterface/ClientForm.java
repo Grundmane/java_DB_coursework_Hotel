@@ -33,6 +33,7 @@ public class ClientForm extends javax.swing.JFrame {
         jTextPane1 = new javax.swing.JTextPane();
         background = new javax.swing.JLabel();
         backButton = new javax.swing.JButton();
+        newClientButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Client");
@@ -59,6 +60,15 @@ public class ClientForm extends javax.swing.JFrame {
         getContentPane().add(backButton);
         backButton.setBounds(13, 120, 70, 80);
 
+        newClientButton.setText("jButton1");
+        newClientButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                newClientButtonActionPerformed(evt);
+            }
+        });
+        getContentPane().add(newClientButton);
+        newClientButton.setBounds(480, 650, 130, 40);
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -70,6 +80,11 @@ public class ClientForm extends javax.swing.JFrame {
         this.hide();
         
     }//GEN-LAST:event_backButtonActionPerformed
+
+    private void newClientButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newClientButtonActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_newClientButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -111,6 +126,7 @@ public class ClientForm extends javax.swing.JFrame {
     private javax.swing.JLabel background;
     private javax.swing.JTextPane jTextPane1;
     private javax.swing.JScrollPane login;
+    private javax.swing.JButton newClientButton;
     private javax.swing.JPasswordField password;
     // End of variables declaration//GEN-END:variables
 }

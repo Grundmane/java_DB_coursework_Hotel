@@ -72,6 +72,7 @@ public class WorkerDetailsForm extends javax.swing.JFrame {
 
         jPanel1.setLayout(null);
 
+        nameW.setEditable(false);
         nameW.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nameWActionPerformed(evt);
@@ -80,6 +81,7 @@ public class WorkerDetailsForm extends javax.swing.JFrame {
         jPanel1.add(nameW);
         nameW.setBounds(330, 300, 150, 40);
 
+        dateW.setEditable(false);
         dateW.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 dateWActionPerformed(evt);
@@ -88,6 +90,7 @@ public class WorkerDetailsForm extends javax.swing.JFrame {
         jPanel1.add(dateW);
         dateW.setBounds(330, 380, 150, 40);
 
+        countryW.setEditable(false);
         countryW.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 countryWActionPerformed(evt);
@@ -96,6 +99,7 @@ public class WorkerDetailsForm extends javax.swing.JFrame {
         jPanel1.add(countryW);
         countryW.setBounds(330, 460, 150, 40);
 
+        mailW.setEditable(false);
         mailW.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 mailWActionPerformed(evt);
@@ -104,6 +108,7 @@ public class WorkerDetailsForm extends javax.swing.JFrame {
         jPanel1.add(mailW);
         mailW.setBounds(330, 540, 150, 40);
 
+        postW.setEditable(false);
         postW.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 postWActionPerformed(evt);
@@ -112,6 +117,7 @@ public class WorkerDetailsForm extends javax.swing.JFrame {
         jPanel1.add(postW);
         postW.setBounds(330, 620, 150, 40);
 
+        surnameW.setEditable(false);
         surnameW.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 surnameWActionPerformed(evt);
@@ -120,6 +126,7 @@ public class WorkerDetailsForm extends javax.swing.JFrame {
         jPanel1.add(surnameW);
         surnameW.setBounds(760, 300, 150, 40);
 
+        genderW.setEditable(false);
         genderW.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 genderWActionPerformed(evt);
@@ -128,6 +135,7 @@ public class WorkerDetailsForm extends javax.swing.JFrame {
         jPanel1.add(genderW);
         genderW.setBounds(760, 380, 150, 40);
 
+        numberW.setEditable(false);
         numberW.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 numberWActionPerformed(evt);
@@ -136,6 +144,7 @@ public class WorkerDetailsForm extends javax.swing.JFrame {
         jPanel1.add(numberW);
         numberW.setBounds(760, 460, 150, 40);
 
+        cityW.setEditable(false);
         cityW.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cityWActionPerformed(evt);
@@ -152,6 +161,7 @@ public class WorkerDetailsForm extends javax.swing.JFrame {
         jPanel1.add(IDW);
         IDW.setBounds(330, 140, 150, 50);
 
+        salaryW.setEditable(false);
         salaryW.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 salaryWActionPerformed(evt);
@@ -250,7 +260,7 @@ public class WorkerDetailsForm extends javax.swing.JFrame {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/databaseinterface/assets/ViewWorkers.png"))); // NOI18N
         ViewWorkers.add(jLabel1);
-        jLabel1.setBounds(0, 0, 1300, 830);
+        jLabel1.setBounds(0, 10, 1300, 840);
 
         HomeSearchViewWorker.setText("jButton1");
         HomeSearchViewWorker.addActionListener(new java.awt.event.ActionListener() {
@@ -409,7 +419,7 @@ else {
 System.out.println("NO DATA");
 }
 } catch (Exception ex){
-System.out.println("Error 1");
+System.out.println(ex);
 }
     }//GEN-LAST:event_SearchButActionPerformed
 

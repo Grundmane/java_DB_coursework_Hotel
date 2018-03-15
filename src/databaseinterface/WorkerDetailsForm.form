@@ -54,6 +54,9 @@
           </Layout>
           <SubComponents>
             <Component class="javax.swing.JTextField" name="nameW">
+              <Properties>
+                <Property name="editable" type="boolean" value="false"/>
+              </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nameWActionPerformed"/>
               </Events>
@@ -64,6 +67,9 @@
               </Constraints>
             </Component>
             <Component class="javax.swing.JTextField" name="dateW">
+              <Properties>
+                <Property name="editable" type="boolean" value="false"/>
+              </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="dateWActionPerformed"/>
               </Events>
@@ -74,6 +80,9 @@
               </Constraints>
             </Component>
             <Component class="javax.swing.JTextField" name="countryW">
+              <Properties>
+                <Property name="editable" type="boolean" value="false"/>
+              </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="countryWActionPerformed"/>
               </Events>
@@ -84,6 +93,9 @@
               </Constraints>
             </Component>
             <Component class="javax.swing.JTextField" name="mailW">
+              <Properties>
+                <Property name="editable" type="boolean" value="false"/>
+              </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mailWActionPerformed"/>
               </Events>
@@ -94,6 +106,9 @@
               </Constraints>
             </Component>
             <Component class="javax.swing.JTextField" name="postW">
+              <Properties>
+                <Property name="editable" type="boolean" value="false"/>
+              </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="postWActionPerformed"/>
               </Events>
@@ -104,6 +119,9 @@
               </Constraints>
             </Component>
             <Component class="javax.swing.JTextField" name="surnameW">
+              <Properties>
+                <Property name="editable" type="boolean" value="false"/>
+              </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="surnameWActionPerformed"/>
               </Events>
@@ -114,6 +132,9 @@
               </Constraints>
             </Component>
             <Component class="javax.swing.JTextField" name="genderW">
+              <Properties>
+                <Property name="editable" type="boolean" value="false"/>
+              </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="genderWActionPerformed"/>
               </Events>
@@ -124,6 +145,9 @@
               </Constraints>
             </Component>
             <Component class="javax.swing.JTextField" name="numberW">
+              <Properties>
+                <Property name="editable" type="boolean" value="false"/>
+              </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="numberWActionPerformed"/>
               </Events>
@@ -134,6 +158,9 @@
               </Constraints>
             </Component>
             <Component class="javax.swing.JTextField" name="cityW">
+              <Properties>
+                <Property name="editable" type="boolean" value="false"/>
+              </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cityWActionPerformed"/>
               </Events>
@@ -154,6 +181,9 @@
               </Constraints>
             </Component>
             <Component class="javax.swing.JTextField" name="salaryW">
+              <Properties>
+                <Property name="editable" type="boolean" value="false"/>
+              </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="salaryWActionPerformed"/>
               </Events>
@@ -353,7 +383,7 @@
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="0" y="0" width="1300" height="830"/>
+                  <AbsoluteConstraints x="0" y="10" width="1300" height="840"/>
                 </Constraint>
               </Constraints>
             </Component>

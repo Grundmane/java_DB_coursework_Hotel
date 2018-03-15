@@ -5,17 +5,30 @@
  */
 package databaseinterface;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Veronika
  */
 public class ClientDetails extends javax.swing.JFrame {
-
+ private static final String USERNAME = "root";
+    private static final String PASSWORD = "Axeldance1240";
+   private static final String CONN_STRING = "jdbc:mysql://localhost:3306/mydbtest?useUnicode=true&useSSL=true&useJDBCCompliantTimezoneShift=true";
     /**
      * Creates new form ClientDetails
      */
     public ClientDetails() {
         initComponents();
+          DefaultTableModel dms = new DBclassClient().getData();
+     ViewClient.setModel(dms);
     }
 
     /**
@@ -29,37 +42,136 @@ public class ClientDetails extends javax.swing.JFrame {
 
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
+        textCityClient = new javax.swing.JTextField();
+        textGenderClient = new javax.swing.JComboBox<>();
+        textNameClient = new javax.swing.JTextField();
+        textDataClient = new javax.swing.JTextField();
+        textEmailClient = new javax.swing.JTextField();
+        textSurnameClient = new javax.swing.JTextField();
+        textPhoneClient = new javax.swing.JTextField();
+        textCountryClient = new javax.swing.JTextField();
         jCheckBox1 = new javax.swing.JCheckBox();
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         HomeSearchRoom = new javax.swing.JButton();
         LogoutSearchRoom = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
+        IDclient = new javax.swing.JTextField();
+        DelDataClient = new javax.swing.JTextField();
+        DelCountryClient = new javax.swing.JTextField();
+        DelEmailClient = new javax.swing.JTextField();
+        DelSurnameClient = new javax.swing.JTextField();
+        DelGenderClient = new javax.swing.JTextField();
+        DelCityClient = new javax.swing.JTextField();
+        DelNameClient = new javax.swing.JTextField();
+        DelPhoneClient = new javax.swing.JTextField();
+        DelReservClient = new javax.swing.JCheckBox();
         jLabel2 = new javax.swing.JLabel();
-        HomeDeleteClient = new javax.swing.JButton();
         LogoutDeleteClient = new javax.swing.JButton();
+        HomeDeleteClient = new javax.swing.JButton();
+        SearchDelClient = new javax.swing.JButton();
+        DeleteButClient = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         HomeUpdateClient = new javax.swing.JButton();
         LogoutUpdateClient = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
+        IDclient1 = new javax.swing.JTextField();
+        SearchCityClient = new javax.swing.JTextField();
+        SearchNameClient = new javax.swing.JTextField();
+        SearchDataClient = new javax.swing.JTextField();
+        SearchCountryClient = new javax.swing.JTextField();
+        SearchEmailClient = new javax.swing.JTextField();
+        SearchSurnameClient = new javax.swing.JTextField();
+        SearchGenderClient = new javax.swing.JTextField();
+        SearchPhoneClient = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         HomeSearchClient = new javax.swing.JButton();
         LogoutSearchClient = new javax.swing.JButton();
+        SearchDelClient1 = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        ViewClient = new javax.swing.JTable();
         jLabel5 = new javax.swing.JLabel();
         LogoutViewClient = new javax.swing.JButton();
         HomeViewClient = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(1300, 869));
+        getContentPane().setLayout(null);
 
         jPanel1.setLayout(null);
+
+        textCityClient.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textCityClientActionPerformed(evt);
+            }
+        });
+        jPanel1.add(textCityClient);
+        textCityClient.setBounds(760, 570, 150, 40);
+
+        textGenderClient.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Male", "Female" }));
+        textGenderClient.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textGenderClientActionPerformed(evt);
+            }
+        });
+        jPanel1.add(textGenderClient);
+        textGenderClient.setBounds(760, 410, 150, 40);
+
+        textNameClient.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textNameClientActionPerformed(evt);
+            }
+        });
+        jPanel1.add(textNameClient);
+        textNameClient.setBounds(330, 330, 150, 40);
+
+        textDataClient.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textDataClientActionPerformed(evt);
+            }
+        });
+        jPanel1.add(textDataClient);
+        textDataClient.setBounds(330, 410, 150, 40);
+
+        textEmailClient.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textEmailClientActionPerformed(evt);
+            }
+        });
+        jPanel1.add(textEmailClient);
+        textEmailClient.setBounds(330, 570, 150, 40);
+
+        textSurnameClient.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textSurnameClientActionPerformed(evt);
+            }
+        });
+        jPanel1.add(textSurnameClient);
+        textSurnameClient.setBounds(760, 330, 150, 40);
+
+        textPhoneClient.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textPhoneClientActionPerformed(evt);
+            }
+        });
+        jPanel1.add(textPhoneClient);
+        textPhoneClient.setBounds(760, 490, 150, 40);
+
+        textCountryClient.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textCountryClientActionPerformed(evt);
+            }
+        });
+        jPanel1.add(textCountryClient);
+        textCountryClient.setBounds(330, 490, 150, 40);
         jPanel1.add(jCheckBox1);
-        jCheckBox1.setBounds(380, 730, 21, 40);
+        jCheckBox1.setBounds(380, 640, 21, 40);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/databaseinterface/assets/AddClientFinal.png"))); // NOI18N
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(0, 11, 1300, 867);
+        jLabel1.setBounds(0, 10, 1300, 867);
 
         jButton1.setText("jButton1");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -92,18 +204,91 @@ public class ClientDetails extends javax.swing.JFrame {
 
         jPanel2.setLayout(null);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/databaseinterface/assets/DeleteClient.png"))); // NOI18N
-        jPanel2.add(jLabel2);
-        jLabel2.setBounds(0, 11, 1300, 867);
-
-        HomeDeleteClient.setText("jButton1");
-        HomeDeleteClient.addActionListener(new java.awt.event.ActionListener() {
+        IDclient.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                HomeDeleteClientActionPerformed(evt);
+                IDclientActionPerformed(evt);
             }
         });
-        jPanel2.add(HomeDeleteClient);
-        HomeDeleteClient.setBounds(1194, 60, 40, 40);
+        jPanel2.add(IDclient);
+        IDclient.setBounds(330, 170, 150, 50);
+
+        DelDataClient.setEditable(false);
+        DelDataClient.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DelDataClientActionPerformed(evt);
+            }
+        });
+        jPanel2.add(DelDataClient);
+        DelDataClient.setBounds(330, 400, 150, 40);
+
+        DelCountryClient.setEditable(false);
+        DelCountryClient.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DelCountryClientActionPerformed(evt);
+            }
+        });
+        jPanel2.add(DelCountryClient);
+        DelCountryClient.setBounds(330, 480, 150, 40);
+
+        DelEmailClient.setEditable(false);
+        DelEmailClient.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DelEmailClientActionPerformed(evt);
+            }
+        });
+        jPanel2.add(DelEmailClient);
+        DelEmailClient.setBounds(330, 560, 150, 40);
+
+        DelSurnameClient.setEditable(false);
+        DelSurnameClient.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DelSurnameClientActionPerformed(evt);
+            }
+        });
+        jPanel2.add(DelSurnameClient);
+        DelSurnameClient.setBounds(760, 330, 150, 40);
+
+        DelGenderClient.setEditable(false);
+        DelGenderClient.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DelGenderClientActionPerformed(evt);
+            }
+        });
+        jPanel2.add(DelGenderClient);
+        DelGenderClient.setBounds(760, 410, 150, 40);
+
+        DelCityClient.setEditable(false);
+        DelCityClient.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DelCityClientActionPerformed(evt);
+            }
+        });
+        jPanel2.add(DelCityClient);
+        DelCityClient.setBounds(760, 570, 150, 40);
+
+        DelNameClient.setEditable(false);
+        DelNameClient.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DelNameClientActionPerformed(evt);
+            }
+        });
+        jPanel2.add(DelNameClient);
+        DelNameClient.setBounds(330, 330, 150, 40);
+
+        DelPhoneClient.setEditable(false);
+        DelPhoneClient.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DelPhoneClientActionPerformed(evt);
+            }
+        });
+        jPanel2.add(DelPhoneClient);
+        DelPhoneClient.setBounds(760, 490, 150, 40);
+        jPanel2.add(DelReservClient);
+        DelReservClient.setBounds(380, 640, 21, 40);
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/databaseinterface/assets/DeleteClient.png"))); // NOI18N
+        jPanel2.add(jLabel2);
+        jLabel2.setBounds(0, 10, 1300, 867);
 
         LogoutDeleteClient.setText("jButton2");
         LogoutDeleteClient.addActionListener(new java.awt.event.ActionListener() {
@@ -114,13 +299,40 @@ public class ClientDetails extends javax.swing.JFrame {
         jPanel2.add(LogoutDeleteClient);
         LogoutDeleteClient.setBounds(1250, 60, 40, 40);
 
+        HomeDeleteClient.setText("jButton1");
+        HomeDeleteClient.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                HomeDeleteClientActionPerformed(evt);
+            }
+        });
+        jPanel2.add(HomeDeleteClient);
+        HomeDeleteClient.setBounds(1194, 60, 40, 40);
+
+        SearchDelClient.setText("jButton2");
+        SearchDelClient.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SearchDelClientActionPerformed(evt);
+            }
+        });
+        jPanel2.add(SearchDelClient);
+        SearchDelClient.setBounds(530, 170, 180, 50);
+
+        DeleteButClient.setText("jButton2");
+        DeleteButClient.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DeleteButClientActionPerformed(evt);
+            }
+        });
+        jPanel2.add(DeleteButClient);
+        DeleteButClient.setBounds(1100, 170, 170, 50);
+
         jTabbedPane1.addTab("Delete Client", jPanel2);
 
         jPanel3.setLayout(null);
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/databaseinterface/assets/UpdateClient.png"))); // NOI18N
         jPanel3.add(jLabel3);
-        jLabel3.setBounds(0, 11, 1300, 867);
+        jLabel3.setBounds(0, 10, 1300, 867);
 
         HomeUpdateClient.setText("jButton1");
         HomeUpdateClient.addActionListener(new java.awt.event.ActionListener() {
@@ -144,9 +356,89 @@ public class ClientDetails extends javax.swing.JFrame {
 
         jPanel4.setLayout(null);
 
+        IDclient1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                IDclient1ActionPerformed(evt);
+            }
+        });
+        jPanel4.add(IDclient1);
+        IDclient1.setBounds(330, 170, 150, 50);
+
+        SearchCityClient.setEditable(false);
+        SearchCityClient.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SearchCityClientActionPerformed(evt);
+            }
+        });
+        jPanel4.add(SearchCityClient);
+        SearchCityClient.setBounds(760, 570, 150, 40);
+
+        SearchNameClient.setEditable(false);
+        SearchNameClient.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SearchNameClientActionPerformed(evt);
+            }
+        });
+        jPanel4.add(SearchNameClient);
+        SearchNameClient.setBounds(330, 330, 150, 40);
+
+        SearchDataClient.setEditable(false);
+        SearchDataClient.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SearchDataClientActionPerformed(evt);
+            }
+        });
+        jPanel4.add(SearchDataClient);
+        SearchDataClient.setBounds(330, 400, 150, 40);
+
+        SearchCountryClient.setEditable(false);
+        SearchCountryClient.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SearchCountryClientActionPerformed(evt);
+            }
+        });
+        jPanel4.add(SearchCountryClient);
+        SearchCountryClient.setBounds(330, 480, 150, 40);
+
+        SearchEmailClient.setEditable(false);
+        SearchEmailClient.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SearchEmailClientActionPerformed(evt);
+            }
+        });
+        jPanel4.add(SearchEmailClient);
+        SearchEmailClient.setBounds(330, 560, 150, 40);
+
+        SearchSurnameClient.setEditable(false);
+        SearchSurnameClient.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SearchSurnameClientActionPerformed(evt);
+            }
+        });
+        jPanel4.add(SearchSurnameClient);
+        SearchSurnameClient.setBounds(760, 330, 150, 40);
+
+        SearchGenderClient.setEditable(false);
+        SearchGenderClient.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SearchGenderClientActionPerformed(evt);
+            }
+        });
+        jPanel4.add(SearchGenderClient);
+        SearchGenderClient.setBounds(760, 410, 150, 40);
+
+        SearchPhoneClient.setEditable(false);
+        SearchPhoneClient.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SearchPhoneClientActionPerformed(evt);
+            }
+        });
+        jPanel4.add(SearchPhoneClient);
+        SearchPhoneClient.setBounds(760, 490, 150, 40);
+
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/databaseinterface/assets/SearchClient.png"))); // NOI18N
         jPanel4.add(jLabel4);
-        jLabel4.setBounds(0, 11, 1300, 867);
+        jLabel4.setBounds(0, 10, 1300, 867);
 
         HomeSearchClient.setText("jButton1");
         HomeSearchClient.addActionListener(new java.awt.event.ActionListener() {
@@ -166,13 +458,46 @@ public class ClientDetails extends javax.swing.JFrame {
         jPanel4.add(LogoutSearchClient);
         LogoutSearchClient.setBounds(1250, 60, 40, 40);
 
+        SearchDelClient1.setText("jButton2");
+        SearchDelClient1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SearchDelClient1ActionPerformed(evt);
+            }
+        });
+        jPanel4.add(SearchDelClient1);
+        SearchDelClient1.setBounds(530, 170, 180, 50);
+
         jTabbedPane1.addTab("Search Client", jPanel4);
 
         jPanel5.setLayout(null);
 
+        ViewClient.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "ID", "Name", "Surname", "Email", "Date", "Gender", "Country", "City", "Phone number"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, true, true, true, true
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(ViewClient);
+
+        jPanel5.add(jScrollPane1);
+        jScrollPane1.setBounds(0, 190, 1300, 402);
+
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/databaseinterface/assets/ViewClient.png"))); // NOI18N
         jPanel5.add(jLabel5);
-        jLabel5.setBounds(0, 11, 1300, 867);
+        jLabel5.setBounds(0, 10, 1300, 867);
 
         LogoutViewClient.setText("jButton2");
         LogoutViewClient.addActionListener(new java.awt.event.ActionListener() {
@@ -194,84 +519,18 @@ public class ClientDetails extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("View Patient", jPanel5);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1305, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 891, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
+        getContentPane().add(jTabbedPane1);
+        jTabbedPane1.setBounds(0, 0, 1305, 891);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-         if (jCheckBox1.isSelected()){
-            ReservationRoomForm reservRoomForm = new ReservationRoomForm();
-            reservRoomForm.setVisible(true);
-            this.hide();
-            }
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void HomeSearchRoomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HomeSearchRoomActionPerformed
+    private void HomeViewClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HomeViewClientActionPerformed
         // TODO add your handling code here:
         WorkerPortail workerPortail = new WorkerPortail();
         workerPortail.setVisible(true);
         this.hide();
-    }//GEN-LAST:event_HomeSearchRoomActionPerformed
-
-    private void LogoutSearchRoomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutSearchRoomActionPerformed
-        // TODO add your handling code here:
-        Interface interFace = new Interface();
-        interFace.setVisible(true);
-        this.hide();
-    }//GEN-LAST:event_LogoutSearchRoomActionPerformed
-
-    private void HomeDeleteClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HomeDeleteClientActionPerformed
-        // TODO add your handling code here:
-         WorkerPortail workerPortail = new WorkerPortail();
-        workerPortail.setVisible(true);
-        this.hide();
-    }//GEN-LAST:event_HomeDeleteClientActionPerformed
-
-    private void LogoutDeleteClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutDeleteClientActionPerformed
-        // TODO add your handling code here:
-        Interface interFace = new Interface();
-        interFace.setVisible(true);
-        this.hide();
-    }//GEN-LAST:event_LogoutDeleteClientActionPerformed
-
-    private void HomeUpdateClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HomeUpdateClientActionPerformed
-        // TODO add your handling code here:
-           WorkerPortail workerPortail = new WorkerPortail();
-        workerPortail.setVisible(true);
-        this.hide();
-    }//GEN-LAST:event_HomeUpdateClientActionPerformed
-
-    private void LogoutUpdateClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutUpdateClientActionPerformed
-        // TODO add your handling code here:
-          Interface interFace = new Interface();
-        interFace.setVisible(true);
-        this.hide();
-    }//GEN-LAST:event_LogoutUpdateClientActionPerformed
-
-    private void HomeSearchClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HomeSearchClientActionPerformed
-        // TODO add your handling code here:
-         WorkerPortail workerPortail = new WorkerPortail();
-        workerPortail.setVisible(true);
-        this.hide();
-    }//GEN-LAST:event_HomeSearchClientActionPerformed
-
-    private void LogoutSearchClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutSearchClientActionPerformed
-        // TODO add your handling code here:
-         Interface interFace = new Interface();
-        interFace.setVisible(true);
-        this.hide();
-    }//GEN-LAST:event_LogoutSearchClientActionPerformed
+    }//GEN-LAST:event_HomeViewClientActionPerformed
 
     private void LogoutViewClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutViewClientActionPerformed
         // TODO add your handling code here:
@@ -280,12 +539,250 @@ public class ClientDetails extends javax.swing.JFrame {
         this.hide();
     }//GEN-LAST:event_LogoutViewClientActionPerformed
 
-    private void HomeViewClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HomeViewClientActionPerformed
+    private void LogoutSearchClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutSearchClientActionPerformed
+        // TODO add your handling code here:
+        Interface interFace = new Interface();
+        interFace.setVisible(true);
+        this.hide();
+    }//GEN-LAST:event_LogoutSearchClientActionPerformed
+
+    private void HomeSearchClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HomeSearchClientActionPerformed
         // TODO add your handling code here:
         WorkerPortail workerPortail = new WorkerPortail();
         workerPortail.setVisible(true);
         this.hide();
-    }//GEN-LAST:event_HomeViewClientActionPerformed
+    }//GEN-LAST:event_HomeSearchClientActionPerformed
+
+    private void LogoutUpdateClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutUpdateClientActionPerformed
+        // TODO add your handling code here:
+        Interface interFace = new Interface();
+        interFace.setVisible(true);
+        this.hide();
+    }//GEN-LAST:event_LogoutUpdateClientActionPerformed
+
+    private void HomeUpdateClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HomeUpdateClientActionPerformed
+        // TODO add your handling code here:
+        WorkerPortail workerPortail = new WorkerPortail();
+        workerPortail.setVisible(true);
+        this.hide();
+    }//GEN-LAST:event_HomeUpdateClientActionPerformed
+
+    private void LogoutDeleteClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutDeleteClientActionPerformed
+        // TODO add your handling code here:
+        Interface interFace = new Interface();
+        interFace.setVisible(true);
+        this.hide();
+    }//GEN-LAST:event_LogoutDeleteClientActionPerformed
+
+    private void HomeDeleteClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HomeDeleteClientActionPerformed
+        // TODO add your handling code here:
+        WorkerPortail workerPortail = new WorkerPortail();
+        workerPortail.setVisible(true);
+        this.hide();
+    }//GEN-LAST:event_HomeDeleteClientActionPerformed
+
+    private void LogoutSearchRoomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutSearchRoomActionPerformed
+        // TODO add your handling code here:
+        Interface interFace = new Interface();
+        interFace.setVisible(true);
+        this.hide();
+    }//GEN-LAST:event_LogoutSearchRoomActionPerformed
+
+    private void HomeSearchRoomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HomeSearchRoomActionPerformed
+        // TODO add your handling code here:
+        WorkerPortail workerPortail = new WorkerPortail();
+        workerPortail.setVisible(true);
+        this.hide();
+    }//GEN-LAST:event_HomeSearchRoomActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+         if (new DBclassClient().add(textNameClient.getText(),textSurnameClient.getText(), Integer.parseInt(textDataClient.getText()),textCountryClient.getText(),textEmailClient.getText(),textGenderClient.getSelectedItem().toString(),Integer.parseInt(textPhoneClient.getText()),textCityClient.getText()))
+        {
+        if (jCheckBox1.isSelected()){
+            ReservationRoomForm reservRoomForm = new ReservationRoomForm();
+            reservRoomForm.setVisible(true);
+            this.hide();
+        }
+        this.hide();
+            System.out.println("Successfully Inserted");
+        }else{
+         System.out.println("Error");
+        }
+      
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void textCityClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textCityClientActionPerformed
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_textCityClientActionPerformed
+
+    private void textNameClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textNameClientActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textNameClientActionPerformed
+
+    private void textDataClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textDataClientActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textDataClientActionPerformed
+
+    private void textCountryClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textCountryClientActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textCountryClientActionPerformed
+
+    private void textEmailClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textEmailClientActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textEmailClientActionPerformed
+
+    private void textSurnameClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textSurnameClientActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textSurnameClientActionPerformed
+
+    private void textPhoneClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textPhoneClientActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textPhoneClientActionPerformed
+
+    private void textGenderClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textGenderClientActionPerformed
+        // TODO add your handling code here:
+        String[] gender = { "Male", "Female" };
+    }//GEN-LAST:event_textGenderClientActionPerformed
+
+    private void DelDataClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DelDataClientActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_DelDataClientActionPerformed
+
+    private void DelCountryClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DelCountryClientActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_DelCountryClientActionPerformed
+
+    private void DelEmailClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DelEmailClientActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_DelEmailClientActionPerformed
+
+    private void DelCityClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DelCityClientActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_DelCityClientActionPerformed
+
+    private void DelSurnameClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DelSurnameClientActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_DelSurnameClientActionPerformed
+
+    private void DelNameClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DelNameClientActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_DelNameClientActionPerformed
+
+    private void DelGenderClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DelGenderClientActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_DelGenderClientActionPerformed
+
+    private void DelPhoneClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DelPhoneClientActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_DelPhoneClientActionPerformed
+
+    private void IDclientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IDclientActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_IDclientActionPerformed
+
+    private void SearchDelClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchDelClientActionPerformed
+        // TODO add your handling code here:
+         Function f = new Function();
+        ResultSet rs = null;
+   rs =f.find(IDclient.getText());
+    try{
+if (rs.next()){
+DelNameClient.setText(rs.getString("Name"));
+DelSurnameClient.setText(rs.getString("Surname"));
+DelDataClient.setText(rs.getString("Date"));
+DelCountryClient.setText(rs.getString("Country"));
+DelEmailClient.setText(rs.getString("Email"));
+DelGenderClient.setText(rs.getString("Gender"));
+DelPhoneClient.setText(rs.getString("PhoneNum"));
+DelCityClient.setText(rs.getString("City"));
+
+}
+else {
+System.out.println("NO DATA");
+}
+} catch (Exception ex){
+System.out.println(ex);
+}
+        
+    }//GEN-LAST:event_SearchDelClientActionPerformed
+
+    private void DeleteButClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteButClientActionPerformed
+        // TODO add your handling code here:
+ Connection conn = null;
+try{
+      conn = DriverManager.getConnection(CONN_STRING,USERNAME,PASSWORD);
+   PreparedStatement ps =conn.prepareStatement("delete from clients where Id_client =?");
+   ps.setString(1, IDclient.getText());
+   ps.execute();
+}
+catch(Exception e){
+ System.out.println(e);   
+}
+
+    }//GEN-LAST:event_DeleteButClientActionPerformed
+
+    private void IDclient1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IDclient1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_IDclient1ActionPerformed
+
+    private void SearchCityClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchCityClientActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SearchCityClientActionPerformed
+
+    private void SearchNameClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchNameClientActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SearchNameClientActionPerformed
+
+    private void SearchDataClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchDataClientActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SearchDataClientActionPerformed
+
+    private void SearchCountryClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchCountryClientActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SearchCountryClientActionPerformed
+
+    private void SearchEmailClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchEmailClientActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SearchEmailClientActionPerformed
+
+    private void SearchSurnameClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchSurnameClientActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SearchSurnameClientActionPerformed
+
+    private void SearchGenderClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchGenderClientActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SearchGenderClientActionPerformed
+
+    private void SearchPhoneClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchPhoneClientActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SearchPhoneClientActionPerformed
+
+    private void SearchDelClient1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchDelClient1ActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_SearchDelClient1ActionPerformed
+ public class Function {
+    
+
+   Connection conn = null;
+          PreparedStatement ps = null;
+          ResultSet rs=null;
+          public ResultSet find(String s)
+          {
+          try{
+          conn = DriverManager.getConnection(CONN_STRING,USERNAME,PASSWORD);
+          ps = conn.prepareStatement("select * from clients where Id_client =?");
+          ps.setString(1,s);
+          rs = ps.executeQuery();
+          }catch (Exception e){
+          System.out.println(e);
+          }
+          return rs;
+          }
+          
+   }
 
     /**
      * @param args the command line arguments
@@ -323,16 +820,39 @@ public class ClientDetails extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField DelCityClient;
+    private javax.swing.JTextField DelCountryClient;
+    private javax.swing.JTextField DelDataClient;
+    private javax.swing.JTextField DelEmailClient;
+    private javax.swing.JTextField DelGenderClient;
+    private javax.swing.JTextField DelNameClient;
+    private javax.swing.JTextField DelPhoneClient;
+    private javax.swing.JCheckBox DelReservClient;
+    private javax.swing.JTextField DelSurnameClient;
+    private javax.swing.JButton DeleteButClient;
     private javax.swing.JButton HomeDeleteClient;
     private javax.swing.JButton HomeSearchClient;
     private javax.swing.JButton HomeSearchRoom;
     private javax.swing.JButton HomeUpdateClient;
     private javax.swing.JButton HomeViewClient;
+    private javax.swing.JTextField IDclient;
+    private javax.swing.JTextField IDclient1;
     private javax.swing.JButton LogoutDeleteClient;
     private javax.swing.JButton LogoutSearchClient;
     private javax.swing.JButton LogoutSearchRoom;
     private javax.swing.JButton LogoutUpdateClient;
     private javax.swing.JButton LogoutViewClient;
+    private javax.swing.JTextField SearchCityClient;
+    private javax.swing.JTextField SearchCountryClient;
+    private javax.swing.JTextField SearchDataClient;
+    private javax.swing.JButton SearchDelClient;
+    private javax.swing.JButton SearchDelClient1;
+    private javax.swing.JTextField SearchEmailClient;
+    private javax.swing.JTextField SearchGenderClient;
+    private javax.swing.JTextField SearchNameClient;
+    private javax.swing.JTextField SearchPhoneClient;
+    private javax.swing.JTextField SearchSurnameClient;
+    private javax.swing.JTable ViewClient;
     private javax.swing.JButton jButton1;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JLabel jLabel1;
@@ -345,6 +865,15 @@ public class ClientDetails extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTextField textCityClient;
+    private javax.swing.JTextField textCountryClient;
+    private javax.swing.JTextField textDataClient;
+    private javax.swing.JTextField textEmailClient;
+    private javax.swing.JComboBox<String> textGenderClient;
+    private javax.swing.JTextField textNameClient;
+    private javax.swing.JTextField textPhoneClient;
+    private javax.swing.JTextField textSurnameClient;
     // End of variables declaration//GEN-END:variables
 }
