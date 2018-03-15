@@ -5,11 +5,28 @@
  */
 package databaseinterface;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
+
+
+
+
+
 /**
  *
  * @author Veronika
  */
 public class NewWorkerForm extends javax.swing.JFrame {
+ private static final String USERNAME = "root";
+    private static final String PASSWORD = "Axeldance1240";
+   private static final String CONN_STRING = "jdbc:mysql://localhost:3306/mydbtest?useUnicode=true&useSSL=true&useJDBCCompliantTimezoneShift=true";
 
     /**
      * Creates new form NewWorkerForm
@@ -17,6 +34,8 @@ public class NewWorkerForm extends javax.swing.JFrame {
     public NewWorkerForm() {
         initComponents();
     }
+
+        
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -27,13 +46,80 @@ public class NewWorkerForm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        genderWorker = new javax.swing.JComboBox<>();
+        textNameWorker = new javax.swing.JTextField();
+        textPostWorker = new javax.swing.JComboBox<>();
+        textDateWorker = new javax.swing.JTextField();
+        textCountryWorker = new javax.swing.JTextField();
+        textEmailWorker = new javax.swing.JTextField();
+        textSalaryWorker = new javax.swing.JTextField();
+        textPassWorker = new javax.swing.JTextField();
+        textPhoneWorker = new javax.swing.JTextField();
+        textSurnameWorker = new javax.swing.JTextField();
+        textLoginWorker = new javax.swing.JTextField();
+        textCityWorker = new javax.swing.JTextField();
+        IDworker = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         nextbuttWorker = new javax.swing.JButton();
         LogoutaddWorker = new javax.swing.JButton();
+        jComboBox1 = new javax.swing.JComboBox<>();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1320, 867));
         getContentPane().setLayout(null);
+
+        genderWorker.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Male", "Female" }));
+        genderWorker.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                genderWorkerActionPerformed(evt);
+            }
+        });
+        getContentPane().add(genderWorker);
+        genderWorker.setBounds(760, 410, 150, 40);
+
+        textNameWorker.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textNameWorkerActionPerformed(evt);
+            }
+        });
+        getContentPane().add(textNameWorker);
+        textNameWorker.setBounds(330, 330, 150, 40);
+
+        textPostWorker.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administrator", "Hotel Manager", "Assistant Hotel Manager", "Housekeeping Supervisor", "Front Desk Supervisor", "Supervisor of Guest Services", "Housekeeping" }));
+        textPostWorker.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textPostWorkerActionPerformed(evt);
+            }
+        });
+        getContentPane().add(textPostWorker);
+        textPostWorker.setBounds(330, 650, 150, 40);
+        getContentPane().add(textDateWorker);
+        textDateWorker.setBounds(330, 410, 150, 40);
+        getContentPane().add(textCountryWorker);
+        textCountryWorker.setBounds(330, 490, 150, 40);
+        getContentPane().add(textEmailWorker);
+        textEmailWorker.setBounds(330, 570, 150, 40);
+        getContentPane().add(textSalaryWorker);
+        textSalaryWorker.setBounds(760, 650, 150, 40);
+        getContentPane().add(textPassWorker);
+        textPassWorker.setBounds(1110, 410, 150, 40);
+        getContentPane().add(textPhoneWorker);
+        textPhoneWorker.setBounds(760, 490, 150, 40);
+        getContentPane().add(textSurnameWorker);
+        textSurnameWorker.setBounds(760, 330, 150, 40);
+        getContentPane().add(textLoginWorker);
+        textLoginWorker.setBounds(1110, 330, 150, 40);
+        getContentPane().add(textCityWorker);
+        textCityWorker.setBounds(760, 570, 150, 40);
+
+        IDworker.setEditable(false);
+        IDworker.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                IDworkerActionPerformed(evt);
+            }
+        });
+        getContentPane().add(IDworker);
+        IDworker.setBounds(330, 170, 150, 50);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/databaseinterface/assets/AddWorker.png"))); // NOI18N
         getContentPane().add(jLabel1);
@@ -57,14 +143,28 @@ public class NewWorkerForm extends javax.swing.JFrame {
         getContentPane().add(LogoutaddWorker);
         LogoutaddWorker.setBounds(1240, 60, 50, 50);
 
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        getContentPane().add(jComboBox1);
+        jComboBox1.setBounds(760, 650, 150, 40);
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void nextbuttWorkerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextbuttWorkerActionPerformed
         // TODO add your handling code here:
-         WorkerPortail workerPortail = new WorkerPortail();
+        //save to database
+        
+
+        if (new DBclass().add(textNameWorker.getText(),textSurnameWorker.getText(), Integer.parseInt(textDateWorker.getText()),textCountryWorker.getText(),textEmailWorker.getText(),textPostWorker.getSelectedItem().toString(),genderWorker.getSelectedItem().toString(),Integer.parseInt(textPhoneWorker.getText()),textCityWorker.getText(),Integer.parseInt(textSalaryWorker.getText()),textLoginWorker.getText(),textPassWorker.getText()))
+        {
+        WorkerPortail workerPortail = new WorkerPortail();
         workerPortail.setVisible(true);
         this.hide();
+            System.out.println("Successfully Inserted");
+        }else{
+         System.out.println("Error");
+        }
+       
     }//GEN-LAST:event_nextbuttWorkerActionPerformed
 
     private void LogoutaddWorkerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutaddWorkerActionPerformed
@@ -73,6 +173,26 @@ public class NewWorkerForm extends javax.swing.JFrame {
         interFace.setVisible(true);
         this.hide();
     }//GEN-LAST:event_LogoutaddWorkerActionPerformed
+
+    private void genderWorkerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_genderWorkerActionPerformed
+        // TODO add your handling code here:
+        String[] gender = { "Male", "Female" };
+    }//GEN-LAST:event_genderWorkerActionPerformed
+
+    private void textNameWorkerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textNameWorkerActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_textNameWorkerActionPerformed
+
+    private void IDworkerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IDworkerActionPerformed
+        // TODO add your handling code here:       
+
+    }//GEN-LAST:event_IDworkerActionPerformed
+
+    private void textPostWorkerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textPostWorkerActionPerformed
+        // TODO add your handling code here:
+             String[] post = { "Administrator","Hotel Manager","Assistant Hotel Manager","Housekeeping Supervisor","Front Desk Supervisor","Supervisor of Guest Services","Housekeeping"};
+    }//GEN-LAST:event_textPostWorkerActionPerformed
 
     /**
      * @param args the command line arguments
@@ -107,11 +227,26 @@ public class NewWorkerForm extends javax.swing.JFrame {
                 new NewWorkerForm().setVisible(true);
             }
         });
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField IDworker;
     private javax.swing.JButton LogoutaddWorker;
+    private javax.swing.JComboBox<String> genderWorker;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JButton nextbuttWorker;
+    private javax.swing.JTextField textCityWorker;
+    private javax.swing.JTextField textCountryWorker;
+    private javax.swing.JTextField textDateWorker;
+    private javax.swing.JTextField textEmailWorker;
+    private javax.swing.JTextField textLoginWorker;
+    private javax.swing.JTextField textNameWorker;
+    private javax.swing.JTextField textPassWorker;
+    private javax.swing.JTextField textPhoneWorker;
+    private javax.swing.JComboBox<String> textPostWorker;
+    private javax.swing.JTextField textSalaryWorker;
+    private javax.swing.JTextField textSurnameWorker;
     // End of variables declaration//GEN-END:variables
 }
