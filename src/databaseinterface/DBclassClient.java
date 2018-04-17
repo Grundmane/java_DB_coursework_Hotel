@@ -7,7 +7,6 @@ package databaseinterface;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -25,9 +24,9 @@ public class DBclassClient {
    
     //insert into db
    
-  public Boolean add(String name,String surname, int date,String country,String email,String gender,int number,String city){
+  public Boolean add(int id,String name,String surname, int date,String country,String email,String gender,int number,String city){
    
-      String sql = "INSERT INTO mydbtest.clients(Name,Surname,Date,Country,Email,Gender,PhoneNum,City) VALUES('"+ name + "','"+ surname +"','" + date + "','" + country + "','" + email + "','" + gender + "','" + number + "','" + city +"')";
+      String sql = "INSERT INTO mydbtest.clients(Id_client,Name,Surname,Date,Country,Email,Gender,PhoneNum,City) VALUES('"+ id + "','"+ name + "','"+ surname +"','" + date + "','" + country + "','" + email + "','" + gender + "','" + number + "','" + city +"')";
     
         try {
            Connection conn = DriverManager.getConnection(CONN_STRING,USERNAME,PASSWORD);
@@ -36,8 +35,7 @@ public class DBclassClient {
             s.executeUpdate(sql);
             return true;
         } catch (SQLException e){
-            e.printStackTrace();
-            System.out.println("error");
+            System.out.println(e);
         }
        return null;
   }
@@ -71,11 +69,11 @@ public class DBclassClient {
               //get cell values for each row
           String id = rs.getString(1);
           String name = rs.getString(2);
-          String surname = rs.getString(3);
-          int date = rs.getInt(4);
-          String country = rs.getString(5);
-          String email = rs.getString(6);
-          String gender = rs.getString(7);
+          String surname = rs.getString(4);
+          int date = rs.getInt(5);
+          String country = rs.getString(7);
+          String email = rs.getString(3);
+          String gender = rs.getString(6);
           int number = rs.getInt(8);
           String city = rs.getString(9);
           String login = rs.getString(10);
@@ -86,8 +84,8 @@ public class DBclassClient {
           dms.addRow(rowData);
           }
           return dms;
-   }catch(Exception e){
-   e.printStackTrace();
+   }catch(SQLException e){
+      System.out.println(e);
    }
    return null;
    }
