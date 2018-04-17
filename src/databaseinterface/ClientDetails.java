@@ -41,13 +41,13 @@ public class ClientDetails extends javax.swing.JFrame {
     private void initComponents() {
 
         jTabbedPane1 = new javax.swing.JTabbedPane();
-        jPanel1 = new javax.swing.JPanel();
+        AddC = new javax.swing.JPanel();
         textCityClient = new javax.swing.JTextField();
+        textSurnameClient = new javax.swing.JTextField();
         textGenderClient = new javax.swing.JComboBox<>();
         textNameClient = new javax.swing.JTextField();
         textDataClient = new javax.swing.JTextField();
         textEmailClient = new javax.swing.JTextField();
-        textSurnameClient = new javax.swing.JTextField();
         textPhoneClient = new javax.swing.JTextField();
         textCountryClient = new javax.swing.JTextField();
         jCheckBox1 = new javax.swing.JCheckBox();
@@ -55,7 +55,7 @@ public class ClientDetails extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         HomeSearchRoom = new javax.swing.JButton();
         LogoutSearchRoom = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
+        DeleteC = new javax.swing.JPanel();
         IDclient = new javax.swing.JTextField();
         DelDataClient = new javax.swing.JTextField();
         DelCountryClient = new javax.swing.JTextField();
@@ -71,11 +71,24 @@ public class ClientDetails extends javax.swing.JFrame {
         HomeDeleteClient = new javax.swing.JButton();
         SearchDelClient = new javax.swing.JButton();
         DeleteButClient = new javax.swing.JButton();
-        jPanel3 = new javax.swing.JPanel();
+        UpdateC = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
+        ReservUpdateButt = new javax.swing.JCheckBox();
+        CityUpdateC = new javax.swing.JTextField();
+        PhoneUpdateC = new javax.swing.JTextField();
+        GenderUpdateC = new javax.swing.JTextField();
+        SurnameUpdateC = new javax.swing.JTextField();
+        CountryUpdateC = new javax.swing.JTextField();
+        NameUpdateC = new javax.swing.JTextField();
+        DateUpdateC = new javax.swing.JTextField();
+        EmailUpdateC = new javax.swing.JTextField();
+        IDclient2 = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         HomeUpdateClient = new javax.swing.JButton();
         LogoutUpdateClient = new javax.swing.JButton();
-        jPanel4 = new javax.swing.JPanel();
+        searchCupd = new javax.swing.JButton();
+        updateCbutt = new javax.swing.JButton();
+        SearchC = new javax.swing.JPanel();
         IDclient1 = new javax.swing.JTextField();
         SearchCityClient = new javax.swing.JTextField();
         SearchNameClient = new javax.swing.JTextField();
@@ -88,7 +101,7 @@ public class ClientDetails extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         HomeSearchClient = new javax.swing.JButton();
         LogoutSearchClient = new javax.swing.JButton();
-        SearchDelClient1 = new javax.swing.JButton();
+        searchCButt = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         ViewClient = new javax.swing.JTable();
@@ -100,15 +113,23 @@ public class ClientDetails extends javax.swing.JFrame {
         setMinimumSize(new java.awt.Dimension(1300, 869));
         getContentPane().setLayout(null);
 
-        jPanel1.setLayout(null);
+        AddC.setLayout(null);
 
         textCityClient.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 textCityClientActionPerformed(evt);
             }
         });
-        jPanel1.add(textCityClient);
+        AddC.add(textCityClient);
         textCityClient.setBounds(760, 570, 150, 40);
+
+        textSurnameClient.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textSurnameClientActionPerformed(evt);
+            }
+        });
+        AddC.add(textSurnameClient);
+        textSurnameClient.setBounds(760, 330, 150, 40);
 
         textGenderClient.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Male", "Female" }));
         textGenderClient.addActionListener(new java.awt.event.ActionListener() {
@@ -116,7 +137,7 @@ public class ClientDetails extends javax.swing.JFrame {
                 textGenderClientActionPerformed(evt);
             }
         });
-        jPanel1.add(textGenderClient);
+        AddC.add(textGenderClient);
         textGenderClient.setBounds(760, 410, 150, 40);
 
         textNameClient.addActionListener(new java.awt.event.ActionListener() {
@@ -124,7 +145,7 @@ public class ClientDetails extends javax.swing.JFrame {
                 textNameClientActionPerformed(evt);
             }
         });
-        jPanel1.add(textNameClient);
+        AddC.add(textNameClient);
         textNameClient.setBounds(330, 330, 150, 40);
 
         textDataClient.addActionListener(new java.awt.event.ActionListener() {
@@ -132,7 +153,7 @@ public class ClientDetails extends javax.swing.JFrame {
                 textDataClientActionPerformed(evt);
             }
         });
-        jPanel1.add(textDataClient);
+        AddC.add(textDataClient);
         textDataClient.setBounds(330, 410, 150, 40);
 
         textEmailClient.addActionListener(new java.awt.event.ActionListener() {
@@ -140,23 +161,15 @@ public class ClientDetails extends javax.swing.JFrame {
                 textEmailClientActionPerformed(evt);
             }
         });
-        jPanel1.add(textEmailClient);
+        AddC.add(textEmailClient);
         textEmailClient.setBounds(330, 570, 150, 40);
-
-        textSurnameClient.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textSurnameClientActionPerformed(evt);
-            }
-        });
-        jPanel1.add(textSurnameClient);
-        textSurnameClient.setBounds(760, 330, 150, 40);
 
         textPhoneClient.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 textPhoneClientActionPerformed(evt);
             }
         });
-        jPanel1.add(textPhoneClient);
+        AddC.add(textPhoneClient);
         textPhoneClient.setBounds(760, 490, 150, 40);
 
         textCountryClient.addActionListener(new java.awt.event.ActionListener() {
@@ -164,13 +177,13 @@ public class ClientDetails extends javax.swing.JFrame {
                 textCountryClientActionPerformed(evt);
             }
         });
-        jPanel1.add(textCountryClient);
+        AddC.add(textCountryClient);
         textCountryClient.setBounds(330, 490, 150, 40);
-        jPanel1.add(jCheckBox1);
+        AddC.add(jCheckBox1);
         jCheckBox1.setBounds(380, 640, 21, 40);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/databaseinterface/assets/AddClientFinal.png"))); // NOI18N
-        jPanel1.add(jLabel1);
+        AddC.add(jLabel1);
         jLabel1.setBounds(0, 10, 1300, 867);
 
         jButton1.setText("jButton1");
@@ -179,7 +192,7 @@ public class ClientDetails extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1);
+        AddC.add(jButton1);
         jButton1.setBounds(710, 730, 170, 40);
 
         HomeSearchRoom.setText("jButton1");
@@ -188,7 +201,7 @@ public class ClientDetails extends javax.swing.JFrame {
                 HomeSearchRoomActionPerformed(evt);
             }
         });
-        jPanel1.add(HomeSearchRoom);
+        AddC.add(HomeSearchRoom);
         HomeSearchRoom.setBounds(1194, 60, 40, 40);
 
         LogoutSearchRoom.setText("jButton2");
@@ -197,19 +210,19 @@ public class ClientDetails extends javax.swing.JFrame {
                 LogoutSearchRoomActionPerformed(evt);
             }
         });
-        jPanel1.add(LogoutSearchRoom);
+        AddC.add(LogoutSearchRoom);
         LogoutSearchRoom.setBounds(1250, 60, 40, 40);
 
-        jTabbedPane1.addTab("Add Client", jPanel1);
+        jTabbedPane1.addTab("Add Client", AddC);
 
-        jPanel2.setLayout(null);
+        DeleteC.setLayout(null);
 
         IDclient.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 IDclientActionPerformed(evt);
             }
         });
-        jPanel2.add(IDclient);
+        DeleteC.add(IDclient);
         IDclient.setBounds(330, 170, 150, 50);
 
         DelDataClient.setEditable(false);
@@ -218,7 +231,7 @@ public class ClientDetails extends javax.swing.JFrame {
                 DelDataClientActionPerformed(evt);
             }
         });
-        jPanel2.add(DelDataClient);
+        DeleteC.add(DelDataClient);
         DelDataClient.setBounds(330, 400, 150, 40);
 
         DelCountryClient.setEditable(false);
@@ -227,7 +240,7 @@ public class ClientDetails extends javax.swing.JFrame {
                 DelCountryClientActionPerformed(evt);
             }
         });
-        jPanel2.add(DelCountryClient);
+        DeleteC.add(DelCountryClient);
         DelCountryClient.setBounds(330, 480, 150, 40);
 
         DelEmailClient.setEditable(false);
@@ -236,7 +249,7 @@ public class ClientDetails extends javax.swing.JFrame {
                 DelEmailClientActionPerformed(evt);
             }
         });
-        jPanel2.add(DelEmailClient);
+        DeleteC.add(DelEmailClient);
         DelEmailClient.setBounds(330, 560, 150, 40);
 
         DelSurnameClient.setEditable(false);
@@ -245,7 +258,7 @@ public class ClientDetails extends javax.swing.JFrame {
                 DelSurnameClientActionPerformed(evt);
             }
         });
-        jPanel2.add(DelSurnameClient);
+        DeleteC.add(DelSurnameClient);
         DelSurnameClient.setBounds(760, 330, 150, 40);
 
         DelGenderClient.setEditable(false);
@@ -254,7 +267,7 @@ public class ClientDetails extends javax.swing.JFrame {
                 DelGenderClientActionPerformed(evt);
             }
         });
-        jPanel2.add(DelGenderClient);
+        DeleteC.add(DelGenderClient);
         DelGenderClient.setBounds(760, 410, 150, 40);
 
         DelCityClient.setEditable(false);
@@ -263,7 +276,7 @@ public class ClientDetails extends javax.swing.JFrame {
                 DelCityClientActionPerformed(evt);
             }
         });
-        jPanel2.add(DelCityClient);
+        DeleteC.add(DelCityClient);
         DelCityClient.setBounds(760, 570, 150, 40);
 
         DelNameClient.setEditable(false);
@@ -272,7 +285,7 @@ public class ClientDetails extends javax.swing.JFrame {
                 DelNameClientActionPerformed(evt);
             }
         });
-        jPanel2.add(DelNameClient);
+        DeleteC.add(DelNameClient);
         DelNameClient.setBounds(330, 330, 150, 40);
 
         DelPhoneClient.setEditable(false);
@@ -281,13 +294,13 @@ public class ClientDetails extends javax.swing.JFrame {
                 DelPhoneClientActionPerformed(evt);
             }
         });
-        jPanel2.add(DelPhoneClient);
+        DeleteC.add(DelPhoneClient);
         DelPhoneClient.setBounds(760, 490, 150, 40);
-        jPanel2.add(DelReservClient);
+        DeleteC.add(DelReservClient);
         DelReservClient.setBounds(380, 640, 21, 40);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/databaseinterface/assets/DeleteClient.png"))); // NOI18N
-        jPanel2.add(jLabel2);
+        DeleteC.add(jLabel2);
         jLabel2.setBounds(0, 10, 1300, 867);
 
         LogoutDeleteClient.setText("jButton2");
@@ -296,7 +309,7 @@ public class ClientDetails extends javax.swing.JFrame {
                 LogoutDeleteClientActionPerformed(evt);
             }
         });
-        jPanel2.add(LogoutDeleteClient);
+        DeleteC.add(LogoutDeleteClient);
         LogoutDeleteClient.setBounds(1250, 60, 40, 40);
 
         HomeDeleteClient.setText("jButton1");
@@ -305,7 +318,7 @@ public class ClientDetails extends javax.swing.JFrame {
                 HomeDeleteClientActionPerformed(evt);
             }
         });
-        jPanel2.add(HomeDeleteClient);
+        DeleteC.add(HomeDeleteClient);
         HomeDeleteClient.setBounds(1194, 60, 40, 40);
 
         SearchDelClient.setText("jButton2");
@@ -314,7 +327,7 @@ public class ClientDetails extends javax.swing.JFrame {
                 SearchDelClientActionPerformed(evt);
             }
         });
-        jPanel2.add(SearchDelClient);
+        DeleteC.add(SearchDelClient);
         SearchDelClient.setBounds(530, 170, 180, 50);
 
         DeleteButClient.setText("jButton2");
@@ -323,15 +336,91 @@ public class ClientDetails extends javax.swing.JFrame {
                 DeleteButClientActionPerformed(evt);
             }
         });
-        jPanel2.add(DeleteButClient);
+        DeleteC.add(DeleteButClient);
         DeleteButClient.setBounds(1100, 170, 170, 50);
 
-        jTabbedPane1.addTab("Delete Client", jPanel2);
+        jTabbedPane1.addTab("Delete Client", DeleteC);
 
-        jPanel3.setLayout(null);
+        UpdateC.setLayout(null);
+        UpdateC.add(jLabel6);
+        jLabel6.setBounds(470, 710, 0, 0);
+        UpdateC.add(ReservUpdateButt);
+        ReservUpdateButt.setBounds(380, 640, 21, 40);
+
+        CityUpdateC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CityUpdateCActionPerformed(evt);
+            }
+        });
+        UpdateC.add(CityUpdateC);
+        CityUpdateC.setBounds(760, 560, 150, 40);
+
+        PhoneUpdateC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PhoneUpdateCActionPerformed(evt);
+            }
+        });
+        UpdateC.add(PhoneUpdateC);
+        PhoneUpdateC.setBounds(760, 490, 150, 40);
+
+        GenderUpdateC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                GenderUpdateCActionPerformed(evt);
+            }
+        });
+        UpdateC.add(GenderUpdateC);
+        GenderUpdateC.setBounds(760, 410, 150, 40);
+
+        SurnameUpdateC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SurnameUpdateCActionPerformed(evt);
+            }
+        });
+        UpdateC.add(SurnameUpdateC);
+        SurnameUpdateC.setBounds(760, 330, 150, 40);
+
+        CountryUpdateC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CountryUpdateCActionPerformed(evt);
+            }
+        });
+        UpdateC.add(CountryUpdateC);
+        CountryUpdateC.setBounds(330, 480, 150, 40);
+
+        NameUpdateC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NameUpdateCActionPerformed(evt);
+            }
+        });
+        UpdateC.add(NameUpdateC);
+        NameUpdateC.setBounds(330, 330, 150, 40);
+
+        DateUpdateC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DateUpdateCActionPerformed(evt);
+            }
+        });
+        UpdateC.add(DateUpdateC);
+        DateUpdateC.setBounds(330, 400, 150, 40);
+
+        EmailUpdateC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EmailUpdateCActionPerformed(evt);
+            }
+        });
+        UpdateC.add(EmailUpdateC);
+        EmailUpdateC.setBounds(330, 560, 150, 40);
+
+        IDclient2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                IDclient2ActionPerformed(evt);
+            }
+        });
+        UpdateC.add(IDclient2);
+        IDclient2.setBounds(330, 170, 150, 50);
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/databaseinterface/assets/UpdateClient.png"))); // NOI18N
-        jPanel3.add(jLabel3);
+        UpdateC.add(jLabel3);
         jLabel3.setBounds(0, 10, 1300, 867);
 
         HomeUpdateClient.setText("jButton1");
@@ -340,7 +429,7 @@ public class ClientDetails extends javax.swing.JFrame {
                 HomeUpdateClientActionPerformed(evt);
             }
         });
-        jPanel3.add(HomeUpdateClient);
+        UpdateC.add(HomeUpdateClient);
         HomeUpdateClient.setBounds(1194, 60, 40, 40);
 
         LogoutUpdateClient.setText("jButton2");
@@ -349,19 +438,37 @@ public class ClientDetails extends javax.swing.JFrame {
                 LogoutUpdateClientActionPerformed(evt);
             }
         });
-        jPanel3.add(LogoutUpdateClient);
+        UpdateC.add(LogoutUpdateClient);
         LogoutUpdateClient.setBounds(1250, 60, 40, 40);
 
-        jTabbedPane1.addTab("Update Client", jPanel3);
+        searchCupd.setText("jButton2");
+        searchCupd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchCupdActionPerformed(evt);
+            }
+        });
+        UpdateC.add(searchCupd);
+        searchCupd.setBounds(540, 170, 160, 40);
 
-        jPanel4.setLayout(null);
+        updateCbutt.setText("jButton2");
+        updateCbutt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                updateCbuttActionPerformed(evt);
+            }
+        });
+        UpdateC.add(updateCbutt);
+        updateCbutt.setBounds(1100, 170, 170, 40);
+
+        jTabbedPane1.addTab("Update Client", UpdateC);
+
+        SearchC.setLayout(null);
 
         IDclient1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 IDclient1ActionPerformed(evt);
             }
         });
-        jPanel4.add(IDclient1);
+        SearchC.add(IDclient1);
         IDclient1.setBounds(330, 170, 150, 50);
 
         SearchCityClient.setEditable(false);
@@ -370,7 +477,7 @@ public class ClientDetails extends javax.swing.JFrame {
                 SearchCityClientActionPerformed(evt);
             }
         });
-        jPanel4.add(SearchCityClient);
+        SearchC.add(SearchCityClient);
         SearchCityClient.setBounds(760, 570, 150, 40);
 
         SearchNameClient.setEditable(false);
@@ -379,7 +486,7 @@ public class ClientDetails extends javax.swing.JFrame {
                 SearchNameClientActionPerformed(evt);
             }
         });
-        jPanel4.add(SearchNameClient);
+        SearchC.add(SearchNameClient);
         SearchNameClient.setBounds(330, 330, 150, 40);
 
         SearchDataClient.setEditable(false);
@@ -388,7 +495,7 @@ public class ClientDetails extends javax.swing.JFrame {
                 SearchDataClientActionPerformed(evt);
             }
         });
-        jPanel4.add(SearchDataClient);
+        SearchC.add(SearchDataClient);
         SearchDataClient.setBounds(330, 400, 150, 40);
 
         SearchCountryClient.setEditable(false);
@@ -397,7 +504,7 @@ public class ClientDetails extends javax.swing.JFrame {
                 SearchCountryClientActionPerformed(evt);
             }
         });
-        jPanel4.add(SearchCountryClient);
+        SearchC.add(SearchCountryClient);
         SearchCountryClient.setBounds(330, 480, 150, 40);
 
         SearchEmailClient.setEditable(false);
@@ -406,7 +513,7 @@ public class ClientDetails extends javax.swing.JFrame {
                 SearchEmailClientActionPerformed(evt);
             }
         });
-        jPanel4.add(SearchEmailClient);
+        SearchC.add(SearchEmailClient);
         SearchEmailClient.setBounds(330, 560, 150, 40);
 
         SearchSurnameClient.setEditable(false);
@@ -415,7 +522,7 @@ public class ClientDetails extends javax.swing.JFrame {
                 SearchSurnameClientActionPerformed(evt);
             }
         });
-        jPanel4.add(SearchSurnameClient);
+        SearchC.add(SearchSurnameClient);
         SearchSurnameClient.setBounds(760, 330, 150, 40);
 
         SearchGenderClient.setEditable(false);
@@ -424,7 +531,7 @@ public class ClientDetails extends javax.swing.JFrame {
                 SearchGenderClientActionPerformed(evt);
             }
         });
-        jPanel4.add(SearchGenderClient);
+        SearchC.add(SearchGenderClient);
         SearchGenderClient.setBounds(760, 410, 150, 40);
 
         SearchPhoneClient.setEditable(false);
@@ -433,11 +540,11 @@ public class ClientDetails extends javax.swing.JFrame {
                 SearchPhoneClientActionPerformed(evt);
             }
         });
-        jPanel4.add(SearchPhoneClient);
+        SearchC.add(SearchPhoneClient);
         SearchPhoneClient.setBounds(760, 490, 150, 40);
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/databaseinterface/assets/SearchClient.png"))); // NOI18N
-        jPanel4.add(jLabel4);
+        SearchC.add(jLabel4);
         jLabel4.setBounds(0, 10, 1300, 867);
 
         HomeSearchClient.setText("jButton1");
@@ -446,7 +553,7 @@ public class ClientDetails extends javax.swing.JFrame {
                 HomeSearchClientActionPerformed(evt);
             }
         });
-        jPanel4.add(HomeSearchClient);
+        SearchC.add(HomeSearchClient);
         HomeSearchClient.setBounds(1194, 60, 40, 40);
 
         LogoutSearchClient.setText("jButton2");
@@ -455,19 +562,19 @@ public class ClientDetails extends javax.swing.JFrame {
                 LogoutSearchClientActionPerformed(evt);
             }
         });
-        jPanel4.add(LogoutSearchClient);
+        SearchC.add(LogoutSearchClient);
         LogoutSearchClient.setBounds(1250, 60, 40, 40);
 
-        SearchDelClient1.setText("jButton2");
-        SearchDelClient1.addActionListener(new java.awt.event.ActionListener() {
+        searchCButt.setText("jButton2");
+        searchCButt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SearchDelClient1ActionPerformed(evt);
+                searchCButtActionPerformed(evt);
             }
         });
-        jPanel4.add(SearchDelClient1);
-        SearchDelClient1.setBounds(530, 170, 180, 50);
+        SearchC.add(searchCButt);
+        searchCButt.setBounds(530, 170, 170, 50);
 
-        jTabbedPane1.addTab("Search Client", jPanel4);
+        jTabbedPane1.addTab("Search Client", SearchC);
 
         jPanel5.setLayout(null);
 
@@ -597,7 +704,10 @@ public class ClientDetails extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-         if (new DBclassClient().add(textNameClient.getText(),textSurnameClient.getText(), Integer.parseInt(textDataClient.getText()),textCountryClient.getText(),textEmailClient.getText(),textGenderClient.getSelectedItem().toString(),Integer.parseInt(textPhoneClient.getText()),textCityClient.getText()))
+         sqlKeyClient clientKey = new sqlKeyClient();
+         
+         int id = clientKey.id_incrementable();
+         if (new DBclassClient().add(id,textNameClient.getText(),textSurnameClient.getText(), Integer.parseInt(textDataClient.getText()),textCountryClient.getText(),textEmailClient.getText(),textGenderClient.getSelectedItem().toString(),Integer.parseInt(textPhoneClient.getText()),textCityClient.getText()))
         {
         if (jCheckBox1.isSelected()){
             ReservationRoomForm reservRoomForm = new ReservationRoomForm();
@@ -606,6 +716,7 @@ public class ClientDetails extends javax.swing.JFrame {
         }
         this.hide();
             System.out.println("Successfully Inserted");
+            
         }else{
          System.out.println("Error");
         }
@@ -632,10 +743,6 @@ public class ClientDetails extends javax.swing.JFrame {
     private void textEmailClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textEmailClientActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_textEmailClientActionPerformed
-
-    private void textSurnameClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textSurnameClientActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_textSurnameClientActionPerformed
 
     private void textPhoneClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textPhoneClientActionPerformed
         // TODO add your handling code here:
@@ -702,7 +809,7 @@ DelCityClient.setText(rs.getString("City"));
 else {
 System.out.println("NO DATA");
 }
-} catch (Exception ex){
+} catch (SQLException ex){
 System.out.println(ex);
 }
         
@@ -717,7 +824,7 @@ try{
    ps.setString(1, IDclient.getText());
    ps.execute();
 }
-catch(Exception e){
+catch(SQLException e){
  System.out.println(e);   
 }
 
@@ -759,10 +866,119 @@ catch(Exception e){
         // TODO add your handling code here:
     }//GEN-LAST:event_SearchPhoneClientActionPerformed
 
-    private void SearchDelClient1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchDelClient1ActionPerformed
-        // TODO add your handling code here:
+    private void searchCButtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchCButtActionPerformed
+     
+        Function f = new Function();
+        ResultSet rs = null;
+   rs =f.find(IDclient1.getText());
+    try{
+if (rs.next()){
+SearchNameClient.setText(rs.getString("Name"));
+SearchSurnameClient.setText(rs.getString("Surname"));
+SearchDataClient.setText(rs.getString("Date"));
+SearchCountryClient.setText(rs.getString("Country"));
+SearchEmailClient.setText(rs.getString("Email"));
+SearchGenderClient.setText(rs.getString("Gender"));
+SearchPhoneClient.setText(rs.getString("PhoneNum"));
+SearchCityClient.setText(rs.getString("City"));
+
+}
+else {
+System.out.println("NO DATA");
+}
+} catch (SQLException ex){
+System.out.println(ex);
+}
+    }//GEN-LAST:event_searchCButtActionPerformed
+
+    private void searchCupdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchCupdActionPerformed
+       Function f = new Function();
+        ResultSet rs = null;
+   rs =f.find(IDclient2.getText());
+    try{
+if (rs.next()){
+NameUpdateC.setText(rs.getString("Name"));
+SurnameUpdateC.setText(rs.getString("Surname"));
+DateUpdateC.setText(rs.getString("Date"));
+CountryUpdateC.setText(rs.getString("Country"));
+EmailUpdateC.setText(rs.getString("Email"));
+GenderUpdateC.setText(rs.getString("Gender"));
+PhoneUpdateC.setText(rs.getString("PhoneNum"));
+CityUpdateC.setText(rs.getString("City"));
+
+}
+else {
+System.out.println("NO DATA");
+}
+} catch (SQLException ex){
+System.out.println(ex);
+}
         
-    }//GEN-LAST:event_SearchDelClient1ActionPerformed
+    }//GEN-LAST:event_searchCupdActionPerformed
+
+    private void IDclient2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IDclient2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_IDclient2ActionPerformed
+
+    private void NameUpdateCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NameUpdateCActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_NameUpdateCActionPerformed
+
+    private void DateUpdateCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DateUpdateCActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_DateUpdateCActionPerformed
+
+    private void CountryUpdateCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CountryUpdateCActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CountryUpdateCActionPerformed
+
+    private void EmailUpdateCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmailUpdateCActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_EmailUpdateCActionPerformed
+
+    private void SurnameUpdateCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SurnameUpdateCActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SurnameUpdateCActionPerformed
+
+    private void GenderUpdateCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GenderUpdateCActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_GenderUpdateCActionPerformed
+
+    private void PhoneUpdateCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PhoneUpdateCActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_PhoneUpdateCActionPerformed
+
+    private void CityUpdateCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CityUpdateCActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CityUpdateCActionPerformed
+
+    private void updateCbuttActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateCbuttActionPerformed
+        // TODO add your handling code here:
+        Connection conn;
+       try {
+            conn = DriverManager.getConnection(CONN_STRING,USERNAME,PASSWORD);
+        String id = IDclient2.getText();
+        String name = NameUpdateC.getText();
+        String surname = SurnameUpdateC.getText();
+        int date = Integer.parseInt(DateUpdateC.getText());
+        String country = CountryUpdateC.getText();
+        String email = EmailUpdateC.getText();
+        String gender = GenderUpdateC.getText();
+        int phone = Integer.parseInt(PhoneUpdateC.getText());
+        String city = CityUpdateC.getText();
+                             
+        String sql ="update clients set Name ='"+name+"',Surname ='"+surname+"',Date ='"+date+"',Country='"+country+"',Email='"+email+"',Gender ='"+gender+"',PhoneNum='"+phone+"',City='"+city+"' where Id_client ='"+ id+"' ";
+        PreparedStatement ps =conn.prepareStatement(sql);
+        ps.execute();
+        jLabel6.setText("Updated");
+    }catch (SQLException e){
+         System.out.println(e);
+    }
+    }//GEN-LAST:event_updateCbuttActionPerformed
+
+    private void textSurnameClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textSurnameClientActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textSurnameClientActionPerformed
  public class Function {
     
 
@@ -776,7 +992,7 @@ catch(Exception e){
           ps = conn.prepareStatement("select * from clients where Id_client =?");
           ps.setString(1,s);
           rs = ps.executeQuery();
-          }catch (Exception e){
+          }catch (SQLException e){
           System.out.println(e);
           }
           return rs;
@@ -812,14 +1028,16 @@ catch(Exception e){
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new ClientDetails().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new ClientDetails().setVisible(true);
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel AddC;
+    private javax.swing.JTextField CityUpdateC;
+    private javax.swing.JTextField CountryUpdateC;
+    private javax.swing.JTextField DateUpdateC;
     private javax.swing.JTextField DelCityClient;
     private javax.swing.JTextField DelCountryClient;
     private javax.swing.JTextField DelDataClient;
@@ -830,6 +1048,9 @@ catch(Exception e){
     private javax.swing.JCheckBox DelReservClient;
     private javax.swing.JTextField DelSurnameClient;
     private javax.swing.JButton DeleteButClient;
+    private javax.swing.JPanel DeleteC;
+    private javax.swing.JTextField EmailUpdateC;
+    private javax.swing.JTextField GenderUpdateC;
     private javax.swing.JButton HomeDeleteClient;
     private javax.swing.JButton HomeSearchClient;
     private javax.swing.JButton HomeSearchRoom;
@@ -837,21 +1058,27 @@ catch(Exception e){
     private javax.swing.JButton HomeViewClient;
     private javax.swing.JTextField IDclient;
     private javax.swing.JTextField IDclient1;
+    private javax.swing.JTextField IDclient2;
     private javax.swing.JButton LogoutDeleteClient;
     private javax.swing.JButton LogoutSearchClient;
     private javax.swing.JButton LogoutSearchRoom;
     private javax.swing.JButton LogoutUpdateClient;
     private javax.swing.JButton LogoutViewClient;
+    private javax.swing.JTextField NameUpdateC;
+    private javax.swing.JTextField PhoneUpdateC;
+    private javax.swing.JCheckBox ReservUpdateButt;
+    private javax.swing.JPanel SearchC;
     private javax.swing.JTextField SearchCityClient;
     private javax.swing.JTextField SearchCountryClient;
     private javax.swing.JTextField SearchDataClient;
     private javax.swing.JButton SearchDelClient;
-    private javax.swing.JButton SearchDelClient1;
     private javax.swing.JTextField SearchEmailClient;
     private javax.swing.JTextField SearchGenderClient;
     private javax.swing.JTextField SearchNameClient;
     private javax.swing.JTextField SearchPhoneClient;
     private javax.swing.JTextField SearchSurnameClient;
+    private javax.swing.JTextField SurnameUpdateC;
+    private javax.swing.JPanel UpdateC;
     private javax.swing.JTable ViewClient;
     private javax.swing.JButton jButton1;
     private javax.swing.JCheckBox jCheckBox1;
@@ -860,13 +1087,12 @@ catch(Exception e){
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JButton searchCButt;
+    private javax.swing.JButton searchCupd;
     private javax.swing.JTextField textCityClient;
     private javax.swing.JTextField textCountryClient;
     private javax.swing.JTextField textDataClient;
@@ -875,5 +1101,6 @@ catch(Exception e){
     private javax.swing.JTextField textNameClient;
     private javax.swing.JTextField textPhoneClient;
     private javax.swing.JTextField textSurnameClient;
+    private javax.swing.JButton updateCbutt;
     // End of variables declaration//GEN-END:variables
 }

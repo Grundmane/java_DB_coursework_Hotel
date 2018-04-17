@@ -151,19 +151,25 @@ public class NewWorkerForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void nextbuttWorkerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextbuttWorkerActionPerformed
-        // TODO add your handling code here:
-        //save to database
-        
-
-        if (new DBclass().add(textNameWorker.getText(),textSurnameWorker.getText(), Integer.parseInt(textDateWorker.getText()),textCountryWorker.getText(),textEmailWorker.getText(),textPostWorker.getSelectedItem().toString(),genderWorker.getSelectedItem().toString(),Integer.parseInt(textPhoneWorker.getText()),textCityWorker.getText(),Integer.parseInt(textSalaryWorker.getText()),textLoginWorker.getText(),textPassWorker.getText()))
-        {
-        WorkerPortail workerPortail = new WorkerPortail();
-        workerPortail.setVisible(true);
-        this.hide();
-            System.out.println("Successfully Inserted");
-        }else{
-         System.out.println("Error");
-        }
+     try {
+         // TODO add your handling code here:
+         //save to database
+         sqlKey workersKey = new sqlKey();
+         
+         int id = workersKey.id_incrementable();
+         
+         if (new DBclass().add(id,textNameWorker.getText(),textSurnameWorker.getText(), Integer.parseInt(textDateWorker.getText()),textCountryWorker.getText(),textEmailWorker.getText(),textPostWorker.getSelectedItem().toString(),genderWorker.getSelectedItem().toString(),Integer.parseInt(textPhoneWorker.getText()),textCityWorker.getText(),Integer.parseInt(textSalaryWorker.getText()),textLoginWorker.getText(),textPassWorker.getText()))
+         {
+             WorkerPortail workerPortail = new WorkerPortail();
+             workerPortail.setVisible(true);
+             this.hide();
+             System.out.println("Successfully Inserted");
+         }else{
+             System.out.println("Error");
+         }
+     } catch (SQLException ex) {
+         Logger.getLogger(NewWorkerForm.class.getName()).log(Level.SEVERE, null, ex);
+     }
        
     }//GEN-LAST:event_nextbuttWorkerActionPerformed
 

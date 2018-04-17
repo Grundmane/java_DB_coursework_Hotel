@@ -19,6 +19,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class DBclass {
      //Database
+   
    private static final String USERNAME = "root";
     private static final String PASSWORD = "Axeldance1240";
    private static final String CONN_STRING = "jdbc:mysql://localhost:3306/mydbtest?useUnicode=true&useSSL=true&useJDBCCompliantTimezoneShift=true";
@@ -26,10 +27,11 @@ public class DBclass {
 
             //insert into db
    
-  public Boolean add(String name,String surname, int date,String country,String email,String presentpost,String gender,int number,String city, int salary,String login,String password){
-   
-      String sql = "INSERT INTO mydbtest.workers(Name,Surname,Date,Country,Email,Presentpost,Gender,Phonenumber,City,Salary,Login,Password) VALUES('"+ name + "','"+ surname +"','" + date + "','" + country + "','" 
-              + email + "','" + presentpost + "','" + gender + "','" + number + "','" + city + "','" + salary + "','" + login + "','" + password +"')";
+  public Boolean add(int id,String name,String surname, int date,String country,String email,String presentpost,String gender,int number,String city, int salary,String login,String password){
+  
+      String sql = "INSERT INTO mydbtest.workers(Id_worker,Name,Surname,Date,Country,Email,Presentpost,Gender,Phonenumber,City,Salary,Login,Password) VALUES('"+ id + "','"+ name + "','"+ surname +"','" + date + "','" + country + "','" 
+              + email + "','" + presentpost + "','" + gender + "','" + number + "','" + city + "','" + salary + "','" + login + "','" + password +"')"
+              ;
     
         try {
            Connection conn = DriverManager.getConnection(CONN_STRING,USERNAME,PASSWORD);
@@ -38,8 +40,7 @@ public class DBclass {
             s.executeUpdate(sql);
             return true;
         } catch (SQLException e){
-            e.printStackTrace();
-            System.out.println("error");
+            System.out.println(e);
         }
        return null;
   }
@@ -94,8 +95,8 @@ public class DBclass {
           dm.addRow(rowData);
           }
           return dm;
-   }catch(Exception e){
-   e.printStackTrace();
+   }catch(SQLException e){
+   System.out.println(e);
    }
    return null;
    }
