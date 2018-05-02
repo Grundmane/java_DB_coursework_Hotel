@@ -6,7 +6,6 @@
 package databaseinterface;
 
 /**
- *
  * @author Veronika
  */
 public class BreakfastForm extends javax.swing.JFrame {

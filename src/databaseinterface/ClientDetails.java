@@ -15,20 +15,20 @@ import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 
 /**
- *
  * @author Veronika
  */
 public class ClientDetails extends javax.swing.JFrame {
- private static final String USERNAME = "root";
-    private static final String PASSWORD = "Axeldance1240";
-   private static final String CONN_STRING = "jdbc:mysql://localhost:3306/mydbtest?useUnicode=true&useSSL=true&useJDBCCompliantTimezoneShift=true";
+    private static final String USERNAME = "root";
+    private static final String PASSWORD = "root";
+    private static final String CONN_STRING = "jdbc:mysql://localhost:3306/mydbtest?useUnicode=true&useSSL=true&useJDBCCompliantTimezoneShift=true";
+
     /**
      * Creates new form ClientDetails
      */
     public ClientDetails() {
         initComponents();
-          DefaultTableModel dms = new DBclassClient().getData();
-     ViewClient.setModel(dms);
+        DefaultTableModel dms = new DBclassClient().getData();
+        ViewClient.setModel(dms);
     }
 
     /**
@@ -131,7 +131,7 @@ public class ClientDetails extends javax.swing.JFrame {
         AddC.add(textSurnameClient);
         textSurnameClient.setBounds(760, 330, 150, 40);
 
-        textGenderClient.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Male", "Female" }));
+        textGenderClient.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"Male", "Female"}));
         textGenderClient.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 textGenderClientActionPerformed(evt);
@@ -579,22 +579,22 @@ public class ClientDetails extends javax.swing.JFrame {
         jPanel5.setLayout(null);
 
         ViewClient.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null}
-            },
-            new String [] {
-                "ID", "Name", "Surname", "Email", "Date", "Gender", "Country", "City", "Phone number"
-            }
+                new Object[][]{
+                        {null, null, null, null, null, null, null, null, null},
+                        {null, null, null, null, null, null, null, null, null},
+                        {null, null, null, null, null, null, null, null, null},
+                        {null, null, null, null, null, null, null, null, null}
+                },
+                new String[]{
+                        "ID", "Name", "Surname", "Email", "Date", "Gender", "Country", "City", "Phone number"
+                }
         ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, true, true, true, true
+            boolean[] canEdit = new boolean[]{
+                    false, false, false, false, false, true, true, true, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
+                return canEdit[columnIndex];
             }
         });
         jScrollPane1.setViewportView(ViewClient);
@@ -704,23 +704,22 @@ public class ClientDetails extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-         sqlKeyClient clientKey = new sqlKeyClient();
-         
-         int id = clientKey.id_incrementable();
-         if (new DBclassClient().add(id,textNameClient.getText(),textSurnameClient.getText(), Integer.parseInt(textDataClient.getText()),textCountryClient.getText(),textEmailClient.getText(),textGenderClient.getSelectedItem().toString(),Integer.parseInt(textPhoneClient.getText()),textCityClient.getText()))
-        {
-        if (jCheckBox1.isSelected()){
-            ReservationRoomForm reservRoomForm = new ReservationRoomForm();
-            reservRoomForm.setVisible(true);
+        sqlKeyClient clientKey = new sqlKeyClient();
+
+        int id = clientKey.id_incrementable();
+        if (new DBclassClient().add(id, textNameClient.getText(), textSurnameClient.getText(), Integer.parseInt(textDataClient.getText()), textCountryClient.getText(), textEmailClient.getText(), textGenderClient.getSelectedItem().toString(), Integer.parseInt(textPhoneClient.getText()), textCityClient.getText())) {
+            if (jCheckBox1.isSelected()) {
+                ReservationRoomForm reservRoomForm = new ReservationRoomForm();
+                reservRoomForm.setVisible(true);
+                this.hide();
+            }
             this.hide();
-        }
-        this.hide();
             System.out.println("Successfully Inserted");
-            
-        }else{
-         System.out.println("Error");
+
+        } else {
+            System.out.println("Error");
         }
-      
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void textCityClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textCityClientActionPerformed
@@ -750,7 +749,7 @@ public class ClientDetails extends javax.swing.JFrame {
 
     private void textGenderClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textGenderClientActionPerformed
         // TODO add your handling code here:
-        String[] gender = { "Male", "Female" };
+        String[] gender = {"Male", "Female"};
     }//GEN-LAST:event_textGenderClientActionPerformed
 
     private void DelDataClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DelDataClientActionPerformed
@@ -791,42 +790,40 @@ public class ClientDetails extends javax.swing.JFrame {
 
     private void SearchDelClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchDelClientActionPerformed
         // TODO add your handling code here:
-         Function f = new Function();
+        Function f = new Function();
         ResultSet rs = null;
-   rs =f.find(IDclient.getText());
-    try{
-if (rs.next()){
-DelNameClient.setText(rs.getString("Name"));
-DelSurnameClient.setText(rs.getString("Surname"));
-DelDataClient.setText(rs.getString("Date"));
-DelCountryClient.setText(rs.getString("Country"));
-DelEmailClient.setText(rs.getString("Email"));
-DelGenderClient.setText(rs.getString("Gender"));
-DelPhoneClient.setText(rs.getString("PhoneNum"));
-DelCityClient.setText(rs.getString("City"));
+        rs = f.find(IDclient.getText());
+        try {
+            if (rs.next()) {
+                DelNameClient.setText(rs.getString("Name"));
+                DelSurnameClient.setText(rs.getString("Surname"));
+                DelDataClient.setText(rs.getString("Date"));
+                DelCountryClient.setText(rs.getString("Country"));
+                DelEmailClient.setText(rs.getString("Email"));
+                DelGenderClient.setText(rs.getString("Gender"));
+                DelPhoneClient.setText(rs.getString("PhoneNum"));
+                DelCityClient.setText(rs.getString("City"));
 
-}
-else {
-System.out.println("NO DATA");
-}
-} catch (SQLException ex){
-System.out.println(ex);
-}
-        
+            } else {
+                System.out.println("NO DATA");
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+
     }//GEN-LAST:event_SearchDelClientActionPerformed
 
     private void DeleteButClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteButClientActionPerformed
         // TODO add your handling code here:
- Connection conn = null;
-try{
-      conn = DriverManager.getConnection(CONN_STRING,USERNAME,PASSWORD);
-   PreparedStatement ps =conn.prepareStatement("delete from clients where Id_client =?");
-   ps.setString(1, IDclient.getText());
-   ps.execute();
-}
-catch(SQLException e){
- System.out.println(e);   
-}
+        Connection conn = null;
+        try {
+            conn = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
+            PreparedStatement ps = conn.prepareStatement("delete from clients where Id_client =?");
+            ps.setString(1, IDclient.getText());
+            ps.execute();
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
 
     }//GEN-LAST:event_DeleteButClientActionPerformed
 
@@ -867,53 +864,51 @@ catch(SQLException e){
     }//GEN-LAST:event_SearchPhoneClientActionPerformed
 
     private void searchCButtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchCButtActionPerformed
-     
+
         Function f = new Function();
         ResultSet rs = null;
-   rs =f.find(IDclient1.getText());
-    try{
-if (rs.next()){
-SearchNameClient.setText(rs.getString("Name"));
-SearchSurnameClient.setText(rs.getString("Surname"));
-SearchDataClient.setText(rs.getString("Date"));
-SearchCountryClient.setText(rs.getString("Country"));
-SearchEmailClient.setText(rs.getString("Email"));
-SearchGenderClient.setText(rs.getString("Gender"));
-SearchPhoneClient.setText(rs.getString("PhoneNum"));
-SearchCityClient.setText(rs.getString("City"));
+        rs = f.find(IDclient1.getText());
+        try {
+            if (rs.next()) {
+                SearchNameClient.setText(rs.getString("Name"));
+                SearchSurnameClient.setText(rs.getString("Surname"));
+                SearchDataClient.setText(rs.getString("Date"));
+                SearchCountryClient.setText(rs.getString("Country"));
+                SearchEmailClient.setText(rs.getString("Email"));
+                SearchGenderClient.setText(rs.getString("Gender"));
+                SearchPhoneClient.setText(rs.getString("PhoneNum"));
+                SearchCityClient.setText(rs.getString("City"));
 
-}
-else {
-System.out.println("NO DATA");
-}
-} catch (SQLException ex){
-System.out.println(ex);
-}
+            } else {
+                System.out.println("NO DATA");
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
     }//GEN-LAST:event_searchCButtActionPerformed
 
     private void searchCupdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchCupdActionPerformed
-       Function f = new Function();
+        Function f = new Function();
         ResultSet rs = null;
-   rs =f.find(IDclient2.getText());
-    try{
-if (rs.next()){
-NameUpdateC.setText(rs.getString("Name"));
-SurnameUpdateC.setText(rs.getString("Surname"));
-DateUpdateC.setText(rs.getString("Date"));
-CountryUpdateC.setText(rs.getString("Country"));
-EmailUpdateC.setText(rs.getString("Email"));
-GenderUpdateC.setText(rs.getString("Gender"));
-PhoneUpdateC.setText(rs.getString("PhoneNum"));
-CityUpdateC.setText(rs.getString("City"));
+        rs = f.find(IDclient2.getText());
+        try {
+            if (rs.next()) {
+                NameUpdateC.setText(rs.getString("Name"));
+                SurnameUpdateC.setText(rs.getString("Surname"));
+                DateUpdateC.setText(rs.getString("Date"));
+                CountryUpdateC.setText(rs.getString("Country"));
+                EmailUpdateC.setText(rs.getString("Email"));
+                GenderUpdateC.setText(rs.getString("Gender"));
+                PhoneUpdateC.setText(rs.getString("PhoneNum"));
+                CityUpdateC.setText(rs.getString("City"));
 
-}
-else {
-System.out.println("NO DATA");
-}
-} catch (SQLException ex){
-System.out.println(ex);
-}
-        
+            } else {
+                System.out.println("NO DATA");
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+
     }//GEN-LAST:event_searchCupdActionPerformed
 
     private void IDclient2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IDclient2ActionPerformed
@@ -955,50 +950,51 @@ System.out.println(ex);
     private void updateCbuttActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateCbuttActionPerformed
         // TODO add your handling code here:
         Connection conn;
-       try {
-            conn = DriverManager.getConnection(CONN_STRING,USERNAME,PASSWORD);
-        String id = IDclient2.getText();
-        String name = NameUpdateC.getText();
-        String surname = SurnameUpdateC.getText();
-        int date = Integer.parseInt(DateUpdateC.getText());
-        String country = CountryUpdateC.getText();
-        String email = EmailUpdateC.getText();
-        String gender = GenderUpdateC.getText();
-        int phone = Integer.parseInt(PhoneUpdateC.getText());
-        String city = CityUpdateC.getText();
-                             
-        String sql ="update clients set Name ='"+name+"',Surname ='"+surname+"',Date ='"+date+"',Country='"+country+"',Email='"+email+"',Gender ='"+gender+"',PhoneNum='"+phone+"',City='"+city+"' where Id_client ='"+ id+"' ";
-        PreparedStatement ps =conn.prepareStatement(sql);
-        ps.execute();
-        jLabel6.setText("Updated");
-    }catch (SQLException e){
-         System.out.println(e);
-    }
+        try {
+            conn = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
+            String id = IDclient2.getText();
+            String name = NameUpdateC.getText();
+            String surname = SurnameUpdateC.getText();
+            int date = Integer.parseInt(DateUpdateC.getText());
+            String country = CountryUpdateC.getText();
+            String email = EmailUpdateC.getText();
+            String gender = GenderUpdateC.getText();
+            int phone = Integer.parseInt(PhoneUpdateC.getText());
+            String city = CityUpdateC.getText();
+
+            String sql = "update clients set Name ='" + name + "',Surname ='" + surname + "',Date ='" + date + "',Country='" + country + "',Email='" + email + "',Gender ='" + gender + "',PhoneNum='" + phone + "',City='" + city + "' where Id_client ='" + id + "' ";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.execute();
+            jLabel6.setText("Updated");
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
     }//GEN-LAST:event_updateCbuttActionPerformed
 
     private void textSurnameClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textSurnameClientActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_textSurnameClientActionPerformed
- public class Function {
-    
 
-   Connection conn = null;
-          PreparedStatement ps = null;
-          ResultSet rs=null;
-          public ResultSet find(String s)
-          {
-          try{
-          conn = DriverManager.getConnection(CONN_STRING,USERNAME,PASSWORD);
-          ps = conn.prepareStatement("select * from clients where Id_client =?");
-          ps.setString(1,s);
-          rs = ps.executeQuery();
-          }catch (SQLException e){
-          System.out.println(e);
-          }
-          return rs;
-          }
-          
-   }
+    public class Function {
+
+
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+
+        public ResultSet find(String s) {
+            try {
+                conn = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
+                ps = conn.prepareStatement("select * from clients where Id_client =?");
+                ps.setString(1, s);
+                rs = ps.executeQuery();
+            } catch (SQLException e) {
+                System.out.println(e);
+            }
+            return rs;
+        }
+
+    }
 
     /**
      * @param args the command line arguments

@@ -14,93 +14,87 @@ import java.sql.Statement;
 import javax.swing.table.DefaultTableModel;
 
 /**
- *
  * @author Veronika
  */
 public class DBclass {
-     //Database
-   
-   private static final String USERNAME = "root";
-    private static final String PASSWORD = "Axeldance1240";
-   private static final String CONN_STRING = "jdbc:mysql://localhost:3306/mydbtest?useUnicode=true&useSSL=true&useJDBCCompliantTimezoneShift=true";
-    
+    //Database
 
-            //insert into db
-   
-  public Boolean add(int id,String name,String surname, int date,String country,String email,String presentpost,String gender,int number,String city, int salary,String login,String password){
-  
-      String sql = "INSERT INTO mydbtest.workers(Id_worker,Name,Surname,Date,Country,Email,Presentpost,Gender,Phonenumber,City,Salary,Login,Password) VALUES('"+ id + "','"+ name + "','"+ surname +"','" + date + "','" + country + "','" 
-              + email + "','" + presentpost + "','" + gender + "','" + number + "','" + city + "','" + salary + "','" + login + "','" + password +"')"
-              ;
-    
+    private static final String USERNAME = "root";
+    private static final String PASSWORD = "root";
+    private static final String CONN_STRING = "jdbc:mysql://localhost:3306/mydbtest?useUnicode=true&useSSL=true&useJDBCCompliantTimezoneShift=true";
+    //insert into db
+
+    public Boolean add(int id, String name, String surname, int date, String country, String email, String presentpost, String gender, int number, String city, int salary, String login, String password) {
+
+        String sql = "INSERT INTO mydbtest.workers(Id_worker,Name,Surname,Date,Country,Email,Presentpost,Gender,Phonenumber,City,Salary,Login,Password) VALUES('" + id + "','" + name + "','" + surname + "','" + date + "','" + country + "','"
+                + email + "','" + presentpost + "','" + gender + "','" + number + "','" + city + "','" + salary + "','" + login + "','" + password + "')";
+
         try {
-           Connection conn = DriverManager.getConnection(CONN_STRING,USERNAME,PASSWORD);
+            Connection conn = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
             System.out.println("Connected to database");
             Statement s = conn.prepareStatement(sql);
             s.executeUpdate(sql);
             return true;
-        } catch (SQLException e){
+        } catch (SQLException e) {
             System.out.println(e);
         }
-       return null;
-  }
+        return null;
+    }
 
-   //retrieve from mysql
-   public DefaultTableModel getData(){
-   //construct columns
-   DefaultTableModel dm= new DefaultTableModel();
-   dm.addColumn("Id_worker");
-   dm.addColumn("Name");
-   dm.addColumn("Surname");
-   dm.addColumn("Date");
-   dm.addColumn("Country");
-   dm.addColumn("Email");
-   dm.addColumn("Presentpost");
-   dm.addColumn("Gender");
-   dm.addColumn("Phonenumber");
-   dm.addColumn("City");
-   dm.addColumn("Salary");
-   dm.addColumn("Login");
-   dm.addColumn("Password");
-   //sql
-   String sql = "SELECT *FROM workers";
-   
-   try{
-       //get connection
-         Connection conn = DriverManager.getConnection(CONN_STRING,USERNAME,PASSWORD);
-         // get prepared stmt
-          Statement s = conn.prepareStatement(sql);
-          ResultSet rs=s.executeQuery(sql);
-          
-          //loop thru getting all names
-          while (rs.next())
-          {
-              //get cell values for each row
-          String id = rs.getString(1);
-          String name = rs.getString(2);
-          String surname = rs.getString(3);
-          int date = rs.getInt(4);
-          String country = rs.getString(5);
-          String email = rs.getString(6);
-          String presentpost = rs.getString(7);
-          String gender = rs.getString(8);
-          int number = rs.getInt(9);
-          String city = rs.getString(10);
-          int salary = rs.getInt(11);
-          String login = rs.getString(12);
-          String password = rs.getString(13);
-          
-          //add to dm rows collection
-          Object[] rowData = {id,name,surname,date,country,email,presentpost,gender,number,city,salary,login,password};
-          dm.addRow(rowData);
-          }
-          return dm;
-   }catch(SQLException e){
-   System.out.println(e);
-   }
-   return null;
-   }
-   
+    //retrieve from mysql
+    public DefaultTableModel getData() {
+        //construct columns
+        DefaultTableModel dm = new DefaultTableModel();
+        dm.addColumn("Id_worker");
+        dm.addColumn("Name");
+        dm.addColumn("Surname");
+        dm.addColumn("Date");
+        dm.addColumn("Country");
+        dm.addColumn("Email");
+        dm.addColumn("Presentpost");
+        dm.addColumn("Gender");
+        dm.addColumn("Phonenumber");
+        dm.addColumn("City");
+        dm.addColumn("Salary");
+        dm.addColumn("Login");
+        dm.addColumn("Password");
+        //sql
+        String sql = "SELECT *FROM workers";
 
-   
+        try {
+            //get connection
+            Connection conn = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
+            // get prepared stmt
+            Statement s = conn.prepareStatement(sql);
+            ResultSet rs = s.executeQuery(sql);
+
+            //loop thru getting all names
+            while (rs.next()) {
+                //get cell values for each row
+                String id = rs.getString(1);
+                String name = rs.getString(2);
+                String surname = rs.getString(3);
+                int date = rs.getInt(4);
+                String country = rs.getString(5);
+                String email = rs.getString(6);
+                String presentpost = rs.getString(7);
+                String gender = rs.getString(8);
+                int number = rs.getInt(9);
+                String city = rs.getString(10);
+                int salary = rs.getInt(11);
+                String login = rs.getString(12);
+                String password = rs.getString(13);
+
+                //add to dm rows collection
+                Object[] rowData = {id, name, surname, date, country, email, presentpost, gender, number, city, salary, login, password};
+                dm.addRow(rowData);
+            }
+            return dm;
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        return null;
+    }
+
+
 }

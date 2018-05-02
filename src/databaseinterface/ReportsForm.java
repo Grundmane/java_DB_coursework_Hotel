@@ -6,7 +6,6 @@
 package databaseinterface;
 
 /**
- *
  * @author Veronika
  */
 public class ReportsForm extends javax.swing.JFrame {

@@ -4,9 +4,10 @@
  * and open the template in the editor.
  */
 package databaseinterface;
+
 import java.sql.*;
+
 /**
- *
  * @author Veronika
  */
 public class Interface extends javax.swing.JFrame {
@@ -14,13 +15,13 @@ public class Interface extends javax.swing.JFrame {
     /**
      * Creates new form Interface
      */
-   
- 
+
+
     public Interface() {
         initComponents();
-    clientButton.setOpaque(false);
-    clientButton.setContentAreaFilled(false); //to make the content area transparent
-    clientButton.setBorderPainted(false); //to make the borders transparent
+        clientButton.setOpaque(false);
+        clientButton.setContentAreaFilled(false); //to make the content area transparent
+        clientButton.setBorderPainted(false); //to make the borders transparent
     }
 
     /**
@@ -80,14 +81,12 @@ public class Interface extends javax.swing.JFrame {
 
     private void clientButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clientButtonActionPerformed
         // TODO add your handling code here:
-       
+
         ClientForm clientForm = new ClientForm();
         clientForm.setVisible(true);
         this.hide();
-    
-        
-        
-        
+
+
     }//GEN-LAST:event_clientButtonActionPerformed
 
     private void workerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_workerButtonActionPerformed
@@ -128,14 +127,14 @@ public class Interface extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Interface().setVisible(true);
-                
+
                 //connect to database
-       
+
             }
-                 
+
         });
-        
-        
+
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -150,6 +149,5 @@ public class Interface extends javax.swing.JFrame {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    
 
 }

@@ -16,17 +16,13 @@ import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 
 
-
-
-
 /**
- *
  * @author Veronika
  */
 public class NewWorkerForm extends javax.swing.JFrame {
- private static final String USERNAME = "root";
-    private static final String PASSWORD = "Axeldance1240";
-   private static final String CONN_STRING = "jdbc:mysql://localhost:3306/mydbtest?useUnicode=true&useSSL=true&useJDBCCompliantTimezoneShift=true";
+    private static final String USERNAME = "root";
+    private static final String PASSWORD = "root";
+    private static final String CONN_STRING = "jdbc:mysql://localhost:3306/mydbtest?useUnicode=true&useSSL=true&useJDBCCompliantTimezoneShift=true";
 
     /**
      * Creates new form NewWorkerForm
@@ -35,7 +31,6 @@ public class NewWorkerForm extends javax.swing.JFrame {
         initComponents();
     }
 
-        
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -68,7 +63,7 @@ public class NewWorkerForm extends javax.swing.JFrame {
         setMinimumSize(new java.awt.Dimension(1320, 867));
         getContentPane().setLayout(null);
 
-        genderWorker.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Male", "Female" }));
+        genderWorker.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"Male", "Female"}));
         genderWorker.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 genderWorkerActionPerformed(evt);
@@ -85,7 +80,7 @@ public class NewWorkerForm extends javax.swing.JFrame {
         getContentPane().add(textNameWorker);
         textNameWorker.setBounds(330, 330, 150, 40);
 
-        textPostWorker.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administrator", "Hotel Manager", "Assistant Hotel Manager", "Housekeeping Supervisor", "Front Desk Supervisor", "Supervisor of Guest Services", "Housekeeping" }));
+        textPostWorker.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"Administrator", "Hotel Manager", "Assistant Hotel Manager", "Housekeeping Supervisor", "Front Desk Supervisor", "Supervisor of Guest Services", "Housekeeping"}));
         textPostWorker.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 textPostWorkerActionPerformed(evt);
@@ -143,7 +138,7 @@ public class NewWorkerForm extends javax.swing.JFrame {
         getContentPane().add(LogoutaddWorker);
         LogoutaddWorker.setBounds(1240, 60, 50, 50);
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"Item 1", "Item 2", "Item 3", "Item 4"}));
         getContentPane().add(jComboBox1);
         jComboBox1.setBounds(760, 650, 150, 40);
 
@@ -151,26 +146,25 @@ public class NewWorkerForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void nextbuttWorkerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextbuttWorkerActionPerformed
-     try {
-         // TODO add your handling code here:
-         //save to database
-         sqlKey workersKey = new sqlKey();
-         
-         int id = workersKey.id_incrementable();
-         
-         if (new DBclass().add(id,textNameWorker.getText(),textSurnameWorker.getText(), Integer.parseInt(textDateWorker.getText()),textCountryWorker.getText(),textEmailWorker.getText(),textPostWorker.getSelectedItem().toString(),genderWorker.getSelectedItem().toString(),Integer.parseInt(textPhoneWorker.getText()),textCityWorker.getText(),Integer.parseInt(textSalaryWorker.getText()),textLoginWorker.getText(),textPassWorker.getText()))
-         {
-             WorkerPortail workerPortail = new WorkerPortail();
-             workerPortail.setVisible(true);
-             this.hide();
-             System.out.println("Successfully Inserted");
-         }else{
-             System.out.println("Error");
-         }
-     } catch (SQLException ex) {
-         Logger.getLogger(NewWorkerForm.class.getName()).log(Level.SEVERE, null, ex);
-     }
-       
+        try {
+            // TODO add your handling code here:
+            //save to database
+            sqlKey workersKey = new sqlKey();
+
+            int id = workersKey.id_incrementable();
+
+            if (new DBclass().add(id, textNameWorker.getText(), textSurnameWorker.getText(), Integer.parseInt(textDateWorker.getText()), textCountryWorker.getText(), textEmailWorker.getText(), textPostWorker.getSelectedItem().toString(), genderWorker.getSelectedItem().toString(), Integer.parseInt(textPhoneWorker.getText()), textCityWorker.getText(), Integer.parseInt(textSalaryWorker.getText()), textLoginWorker.getText(), textPassWorker.getText())) {
+                WorkerPortail workerPortail = new WorkerPortail();
+                workerPortail.setVisible(true);
+                this.hide();
+                System.out.println("Successfully Inserted");
+            } else {
+                System.out.println("Error");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(NewWorkerForm.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }//GEN-LAST:event_nextbuttWorkerActionPerformed
 
     private void LogoutaddWorkerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutaddWorkerActionPerformed
@@ -182,12 +176,12 @@ public class NewWorkerForm extends javax.swing.JFrame {
 
     private void genderWorkerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_genderWorkerActionPerformed
         // TODO add your handling code here:
-        String[] gender = { "Male", "Female" };
+        String[] gender = {"Male", "Female"};
     }//GEN-LAST:event_genderWorkerActionPerformed
 
     private void textNameWorkerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textNameWorkerActionPerformed
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_textNameWorkerActionPerformed
 
     private void IDworkerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IDworkerActionPerformed
@@ -197,7 +191,7 @@ public class NewWorkerForm extends javax.swing.JFrame {
 
     private void textPostWorkerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textPostWorkerActionPerformed
         // TODO add your handling code here:
-             String[] post = { "Administrator","Hotel Manager","Assistant Hotel Manager","Housekeeping Supervisor","Front Desk Supervisor","Supervisor of Guest Services","Housekeeping"};
+        String[] post = {"Administrator", "Hotel Manager", "Assistant Hotel Manager", "Housekeeping Supervisor", "Front Desk Supervisor", "Supervisor of Guest Services", "Housekeeping"};
     }//GEN-LAST:event_textPostWorkerActionPerformed
 
     /**

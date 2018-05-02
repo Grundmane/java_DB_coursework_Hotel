@@ -6,6 +6,7 @@
 package databaseinterface;
 
 import com.sun.istack.internal.logging.Logger;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -14,19 +15,19 @@ import java.sql.Statement;
 import java.util.logging.Level;
 
 /**
- *
  * @author Veronika
  */
 public class WorkerForm extends javax.swing.JFrame {
- private static final String USERNAME = "root";
-    private static final String PASSWORD = "Axeldance1240";
-   private static final String CONN_STRING = "jdbc:mysql://localhost:3306/mydbtest?useUnicode=true&useSSL=true&useJDBCCompliantTimezoneShift=true";
+    private static final String USERNAME = "root";
+    private static final String PASSWORD = "root";
+    private static final String CONN_STRING = "jdbc:mysql://localhost:3306/mydbtest?useUnicode=true&useSSL=true&useJDBCCompliantTimezoneShift=true";
+
     /**
      * Creates new form WorkerForm
      */
     public WorkerForm() {
         initComponents();
-        
+
     }
 
     /**
@@ -106,37 +107,33 @@ public class WorkerForm extends javax.swing.JFrame {
 
     private void loginButtonWActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonWActionPerformed
         // TODO add your handling code here:
-         int flag = 1;
-           try {
-              
-           Connection conn = DriverManager.getConnection(CONN_STRING,USERNAME,PASSWORD);
+        int flag = 1;
+        try {
+
+            Connection conn = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
             System.out.println("Connected to database");
-              Statement s = conn.createStatement();
-              ResultSet rs = s.executeQuery("select * from mydbtest.workers");
-              while (rs.next()){
-              if ( rs.getString(12).equals(loginText.getText())&& rs.getString(13).equals(new String(passwordText.getPassword())) ){
-                  
-              flag = 0;
-              break;
-              }
-              
-              }
-              if (flag == 0 ){
-             WorkerPortail workerPortail = new WorkerPortail();
-        workerPortail.setVisible(true);
-        this.hide();
-              }
-              else {
-               loginErr.setText("Invalid login/password");
-              }
-        } catch (SQLException e){
-           
+            Statement s = conn.createStatement();
+            ResultSet rs = s.executeQuery("select * from mydbtest.workers");
+            while (rs.next()) {
+                if (rs.getString(12).equals(loginText.getText()) && rs.getString(13).equals(new String(passwordText.getPassword()))) {
+
+                    flag = 0;
+                    break;
+                }
+
+            }
+            if (flag == 0) {
+                WorkerPortail workerPortail = new WorkerPortail();
+                workerPortail.setVisible(true);
+                this.hide();
+            } else {
+                loginErr.setText("Invalid login/password");
+            }
+        } catch (SQLException e) {
+
         }
-        
-        
-        
-      
-   
+
+
     }//GEN-LAST:event_loginButtonWActionPerformed
 
     private void NewWorkerButtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NewWorkerButtActionPerformed

@@ -6,7 +6,6 @@
 package databaseinterface;
 
 /**
- *
  * @author Veronika
  */
 public class SettingsForm extends javax.swing.JFrame {

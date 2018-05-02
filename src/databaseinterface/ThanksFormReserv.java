@@ -6,7 +6,6 @@
 package databaseinterface;
 
 /**
- *
  * @author Veronika
  */
 public class ThanksFormReserv extends javax.swing.JFrame {
@@ -52,7 +51,7 @@ public class ThanksFormReserv extends javax.swing.JFrame {
 
     private void HomeButtonForReservActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HomeButtonForReservActionPerformed
         // TODO add your handling code here:
-         WorkerPortail workerPortail = new WorkerPortail();
+        WorkerPortail workerPortail = new WorkerPortail();
         workerPortail.setVisible(true);
         this.hide();
     }//GEN-LAST:event_HomeButtonForReservActionPerformed

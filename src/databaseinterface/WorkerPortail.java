@@ -6,7 +6,6 @@
 package databaseinterface;
 
 /**
- *
  * @author Veronika
  */
 public class WorkerPortail extends javax.swing.JFrame {
@@ -115,7 +114,7 @@ public class WorkerPortail extends javax.swing.JFrame {
         Interface interFace = new Interface();
         interFace.setVisible(true);
         this.hide();
-     
+
     }//GEN-LAST:event_LogoutButtonActionPerformed
 
     private void roomsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_roomsButtonActionPerformed
@@ -136,28 +135,28 @@ public class WorkerPortail extends javax.swing.JFrame {
         // TODO add your handling code here:
         BreakfastForm breakfast = new BreakfastForm();
         breakfast.setVisible(true);
-         this.hide();
+        this.hide();
     }//GEN-LAST:event_BreakfastButtonActionPerformed
 
     private void ReportsButtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReportsButtActionPerformed
         // TODO add your handling code here:
         ReportsForm reportsForm = new ReportsForm();
         reportsForm.setVisible(true);
-         this.hide();
+        this.hide();
     }//GEN-LAST:event_ReportsButtActionPerformed
 
     private void WorkerDetailsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_WorkerDetailsButtonActionPerformed
         // TODO add your handling code here:
-           WorkerDetailsForm workerDetailsForm = new WorkerDetailsForm();
+        WorkerDetailsForm workerDetailsForm = new WorkerDetailsForm();
         workerDetailsForm.setVisible(true);
-         this.hide();
+        this.hide();
     }//GEN-LAST:event_WorkerDetailsButtonActionPerformed
 
     private void SettingsButtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SettingsButtActionPerformed
         // TODO add your handling code here:
         SettingsForm settingsForm = new SettingsForm();
         settingsForm.setVisible(true);
-          this.hide();
+        this.hide();
     }//GEN-LAST:event_SettingsButtActionPerformed
 
     /**

@@ -14,24 +14,21 @@ import java.sql.SQLException;
 import javax.swing.table.DefaultTableModel;
 
 /**
- *
  * @author Veronika
  */
 public class WorkerDetailsForm extends javax.swing.JFrame {
-  private static final String USERNAME = "root";
-    private static final String PASSWORD = "Axeldance1240";
-   private static final String CONN_STRING = "jdbc:mysql://localhost:3306/mydbtest?useUnicode=true&useSSL=true&useJDBCCompliantTimezoneShift=true";
-  
+    private static final String USERNAME = "root";
+    private static final String PASSWORD = "root";
+    private static final String CONN_STRING = "jdbc:mysql://localhost:3306/mydbtest?useUnicode=true&useSSL=true&useJDBCCompliantTimezoneShift=true";
+
     /**
      * Creates new form WorkerDetailsForm
      */
     public WorkerDetailsForm() {
         initComponents();
-         DefaultTableModel dm = new DBclass().getData();
-     jTableViewWorker.setModel(dm);
+        DefaultTableModel dm = new DBclass().getData();
+        jTableViewWorker.setModel(dm);
     }
-
-   
 
 
     /**
@@ -201,7 +198,7 @@ public class WorkerDetailsForm extends javax.swing.JFrame {
         jPanel1.add(SearchBut);
         SearchBut.setBounds(540, 140, 170, 50);
 
-        genderWorker.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Male", "Female" }));
+        genderWorker.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"Male", "Female"}));
         genderWorker.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 genderWorkerActionPerformed(evt);
@@ -215,29 +212,29 @@ public class WorkerDetailsForm extends javax.swing.JFrame {
         ViewWorkers.setLayout(null);
 
         jTableViewWorker.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null}
-            },
-            new String [] {
-                "Name", "Surname", "Age", "Date", "Country", "Email", "Present post", "Gender", "Phone number", "City", "Salary"
-            }
+                new Object[][]{
+                        {null, null, null, null, null, null, null, null, null, null, null},
+                        {null, null, null, null, null, null, null, null, null, null, null},
+                        {null, null, null, null, null, null, null, null, null, null, null},
+                        {null, null, null, null, null, null, null, null, null, null, null}
+                },
+                new String[]{
+                        "Name", "Surname", "Age", "Date", "Country", "Email", "Present post", "Gender", "Phone number", "City", "Salary"
+                }
         ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class
+            Class[] types = new Class[]{
+                    java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class
             };
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false, false, false
+            boolean[] canEdit = new boolean[]{
+                    false, false, false, false, false, false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
+                return types[columnIndex];
             }
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
+                return canEdit[columnIndex];
             }
         });
         jScrollPane1.setViewportView(jTableViewWorker);
@@ -285,14 +282,14 @@ public class WorkerDetailsForm extends javax.swing.JFrame {
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1300, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 857, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 857, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -367,60 +364,60 @@ public class WorkerDetailsForm extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_salaryWActionPerformed
 
-     public class Function extends DBclass {
-    
+    public class Function extends DBclass {
 
-   Connection conn = null;
-          PreparedStatement ps = null;
-          ResultSet rs=null;
-          public ResultSet find(String s)
-          {
-          try{
-          conn = DriverManager.getConnection(CONN_STRING,USERNAME,PASSWORD);
-          ps = conn.prepareStatement("select * from workers where Id_worker =?");
-          ps.setString(1,s);
-          rs = ps.executeQuery();
-          }catch (Exception e){
-          System.out.println(e);
-          }
-          return rs;
-          }
-   }
+
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+
+        public ResultSet find(String s) {
+            try {
+                conn = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
+                ps = conn.prepareStatement("select * from workers where Id_worker =?");
+                ps.setString(1, s);
+                rs = ps.executeQuery();
+            } catch (Exception e) {
+                System.out.println(e);
+            }
+            return rs;
+        }
+    }
+
     private void SearchButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchButActionPerformed
         // TODO add your handling code here:
         Function f = new Function();
-ResultSet rs = null;
-   String name = "Name";
-   String surname = "Surname";
-   String date  = "Date";
-   String country = "Country";
-   String email = "Email";
-   String presentpost = "Presentpost";
-   String gender = "Gender";
-   String num = "Phonenumber";
-   String city = "City";
-   String salary = "Salary";
-rs = f.find(IDW.getText());
-try{
-if (rs.next()){
-nameW.setText(rs.getString("Name"));
-surnameW.setText(rs.getString("Surname"));
-dateW.setText(rs.getString("Date"));
-countryW.setText(rs.getString("Country"));
-mailW.setText(rs.getString("Email"));
-postW.setText(rs.getString("PresentPost"));
-genderW.setText(rs.getString("Gender"));
-numberW.setText(rs.getString("Phonenumber"));
-cityW.setText(rs.getString("City"));
-salaryW.setText(rs.getString("salary"));
+        ResultSet rs = null;
+        String name = "Name";
+        String surname = "Surname";
+        String date = "Date";
+        String country = "Country";
+        String email = "Email";
+        String presentpost = "Presentpost";
+        String gender = "Gender";
+        String num = "Phonenumber";
+        String city = "City";
+        String salary = "Salary";
+        rs = f.find(IDW.getText());
+        try {
+            if (rs.next()) {
+                nameW.setText(rs.getString("Name"));
+                surnameW.setText(rs.getString("Surname"));
+                dateW.setText(rs.getString("Date"));
+                countryW.setText(rs.getString("Country"));
+                mailW.setText(rs.getString("Email"));
+                postW.setText(rs.getString("PresentPost"));
+                genderW.setText(rs.getString("Gender"));
+                numberW.setText(rs.getString("Phonenumber"));
+                cityW.setText(rs.getString("City"));
+                salaryW.setText(rs.getString("salary"));
 
-}
-else {
-System.out.println("NO DATA");
-}
-} catch (Exception ex){
-System.out.println(ex);
-}
+            } else {
+                System.out.println("NO DATA");
+            }
+        } catch (Exception ex) {
+            System.out.println(ex);
+        }
     }//GEN-LAST:event_SearchButActionPerformed
 
     private void genderWorkerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_genderWorkerActionPerformed
@@ -431,9 +428,10 @@ System.out.println(ex);
         // TODO add your handling code here:
     }//GEN-LAST:event_postWActionPerformed
 
-    private void ViewWorkers(){
-    
+    private void ViewWorkers() {
+
     }
+
     /**
      * @param args the command line arguments
      */
@@ -467,8 +465,8 @@ System.out.println(ex);
                 new WorkerDetailsForm().setVisible(true);
             }
         });
- 
-        
+
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

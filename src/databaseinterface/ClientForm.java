@@ -6,7 +6,6 @@
 package databaseinterface;
 
 /**
- *
  * @author Veronika
  */
 public class ClientForm extends javax.swing.JFrame {
@@ -16,7 +15,6 @@ public class ClientForm extends javax.swing.JFrame {
      */
     public ClientForm() {
         initComponents();
-        
     }
 
     /**
@@ -74,16 +72,16 @@ public class ClientForm extends javax.swing.JFrame {
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
         // TODO add your handling code here:
-       
+
         Interface interFace = new Interface();
         interFace.setVisible(true);
         this.hide();
-        
+
     }//GEN-LAST:event_backButtonActionPerformed
 
     private void newClientButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newClientButtonActionPerformed
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_newClientButtonActionPerformed
 
     /**
